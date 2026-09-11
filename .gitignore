@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+*.key
+*.pem
+private-audit/
+broker-policy.json
+applescript-policy.json
+command-wrappers.json

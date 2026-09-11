@@ -1,0 +1,27 @@
+{
+  "workflowId": "[REDACTED_ID]",
+  "name": "AppleScript permission boundaries and universal broker mode",
+  "status": "succeeded",
+  "counts": {
+    "succeeded": 3
+  },
+  "scheduler": {
+    "requestedConcurrency": 3,
+    "maxConcurrency": 3,
+    "failFast": true,
+    "rateLimitPerMinute": 60,
+    "launchBudget": 3,
+    "deferredCount": 0,
+    "retryAfterSecs": null,
+    "currentPhase": 0,
+    "readyCount": 3,
+    "dependencyBlockedCount": 0,
+    "stoppedAt": null,
+    "stopReason": null,
+    "transport": "single_ssh_remote_batch",
+    "perRequestTimeoutSeconds": null,
+    "batchRequestCount": 3,
+    "batchDeferredCount": 0
+  },
+  "updatedAt": "2026-09-11T19:34:22.518254+00:00"
+}

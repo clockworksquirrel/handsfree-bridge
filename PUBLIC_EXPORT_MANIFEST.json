@@ -1,0 +1,534 @@
+{
+  "project": "HandsFreeBridge",
+  "publication_date": "2026-09-11",
+  "scope": "Public export; manifest excludes itself, .git, and generated Python caches.",
+  "original_bundle_preserved": true,
+  "redactions": [
+    "Private filesystem paths",
+    "Personal owner name",
+    "Private SSH host and address",
+    "Operational request, session, workflow, and idempotency identifiers"
+  ],
+  "held_material": [
+    {
+      "original_public_path": "archive/work/deepapi-source-minimum/remote-before/SKILL.md",
+      "replacement": "archive/work/deepapi-source-minimum/remote-before/SKILL.md.SOURCE.md",
+      "source_url": "https://deepapi.co/deepapi-skill/deepapi/SKILL.md",
+      "reason": "No verified license for redistribution of complete provider material"
+    },
+    {
+      "original_public_path": "archive/work/deepapi-source-minimum/remote-after/SKILL.md",
+      "replacement": "archive/work/deepapi-source-minimum/remote-after/SKILL.md.SOURCE.md",
+      "source_url": "https://deepapi.co/deepapi-skill/deepapi/SKILL.md",
+      "reason": "No verified license for redistribution of complete provider material"
+    },
+    {
+      "original_public_path": "archive/work/deepapi-source-minimum/remote-before/deep-research.md",
+      "replacement": "archive/work/deepapi-source-minimum/remote-before/deep-research.md.SOURCE.md",
+      "source_url": "https://deepapi.co/deepapi-skill/deepapi/references/deep-research.md",
+      "reason": "No verified license for redistribution of complete provider material"
+    },
+    {
+      "original_public_path": "archive/work/deepapi-source-minimum/remote-after/deep-research.md",
+      "replacement": "archive/work/deepapi-source-minimum/remote-after/deep-research.md.SOURCE.md",
+      "source_url": "https://deepapi.co/deepapi-skill/deepapi/references/deep-research.md",
+      "reason": "No verified license for redistribution of complete provider material"
+    },
+    {
+      "original_public_path": "archive/work/deepapi-source-minimum/updater-inspected.sh",
+      "replacement": "archive/work/deepapi-source-minimum/updater-inspected.sh.SOURCE.md",
+      "source_url": "https://deepapi.co/update-skill.sh",
+      "reason": "No verified license for redistribution of complete provider material"
+    },
+    {
+      "original_public_path": "archive/work/applescript-research/contracts/search.web.json",
+      "replacement": "archive/work/applescript-research/contracts/search.web.json.SOURCE.md",
+      "source_url": "https://deepapi.co/openapi.json",
+      "reason": "No verified license for redistribution of complete provider material"
+    },
+    {
+      "original_public_path": "archive/work/applescript-research/contracts/scrape.website.json",
+      "replacement": "archive/work/applescript-research/contracts/scrape.website.json.SOURCE.md",
+      "source_url": "https://deepapi.co/openapi.json",
+      "reason": "No verified license for redistribution of complete provider material"
+    },
+    {
+      "original_public_path": "archive/work/applescript-research/contracts/research.deep.json",
+      "replacement": "archive/work/applescript-research/contracts/research.deep.json.SOURCE.md",
+      "source_url": "https://deepapi.co/openapi.json",
+      "reason": "No verified license for redistribution of complete provider material"
+    }
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 134,
+      "sha256": "f27ebdc0dcd811566d3f30c73d7d5c30af7ece9d3c28d1a69709b32d39c364e2"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "bytes": 585,
+      "sha256": "1d5548b8ed7081164de7b74664c5aabed278abf77aa459d7c715a070c5dd4040"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 1148,
+      "sha256": "ff5144d07357b5a6a361b133aaceabc4617cbf911ba457f8db74d1a4c40834ef"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "NOTICE",
+      "bytes": 530,
+      "sha256": "127b1d0b953c2cbf52612b7f58c5c82d630cf85a379e4e571d102746adae96df"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5324,
+      "sha256": "0bff882e40ee310087ab09ccfb288e4e942926a5254ed24d7c915939ffa58b1d"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 2320,
+      "sha256": "2dd1cc29dadba434f8d81088c3ef321bab07bca12a02266fec2bba9bdbf1d4c9"
+    },
+    {
+      "path": "archive/FINAL_REPORT.md",
+      "bytes": 6732,
+      "sha256": "0d82fd52bafe434fff95b2e5a81c6c2088767fc4aba2f9cd22d1bdf1803e415d"
+    },
+    {
+      "path": "archive/INVENTORY.json",
+      "bytes": 21115,
+      "sha256": "91caaf09c8513de21bcb05a6e0cd86e4a861c4f9e0986f9a2bf7a2c4e095ba8c"
+    },
+    {
+      "path": "archive/README.md",
+      "bytes": 2235,
+      "sha256": "b785fdca482b107ce1fcdf637ac5068ca892182a32cdb555ca72f292b754568f"
+    },
+    {
+      "path": "archive/history/initial-feasibility-report.md",
+      "bytes": 13368,
+      "sha256": "8335d425fe074ef660b5112db3518f15d0c06c73a05edcce6704260fd238aef0"
+    },
+    {
+      "path": "archive/history/interim-bundle/ASSESSMENT.md",
+      "bytes": 13368,
+      "sha256": "8335d425fe074ef660b5112db3518f15d0c06c73a05edcce6704260fd238aef0"
+    },
+    {
+      "path": "archive/history/interim-bundle/EVIDENCE.md",
+      "bytes": 7256,
+      "sha256": "f805faed8f0276bdd4c9338f40c548fffdb56570cf2f1240cf6eed33d514e660"
+    },
+    {
+      "path": "archive/history/interim-bundle/README.md",
+      "bytes": 2132,
+      "sha256": "c6cf1e216dc59ad040538502d548c053e9f289dac82fada18558261ee8bdbb82"
+    },
+    {
+      "path": "archive/work/applescript-research/RAW_RESULTS_NOTICE.md",
+      "bytes": 1549,
+      "sha256": "4f101b2a35325eacfbb62bd029be0170e921bf98f7d5638caa1744bef3b70cc2"
+    },
+    {
+      "path": "archive/work/applescript-research/RESEARCH_REPORT.md",
+      "bytes": 7828,
+      "sha256": "e903036c407979c16bf5bc8cea420ff2e3af71ea0dc08af8564f854de0c12bc2"
+    },
+    {
+      "path": "archive/work/applescript-research/blackboard-discovery.json",
+      "bytes": 13392,
+      "sha256": "13998aa995d8a899d7fefbd90e6bfd018401954c7f62084937784bdd5cfb10e6"
+    },
+    {
+      "path": "archive/work/applescript-research/collect_primary_pages.py",
+      "bytes": 1568,
+      "sha256": "ad3cbf5d06fbb6d7fe2201e262ebee6fcec1a3b028d562a5858426c2de740ca7"
+    },
+    {
+      "path": "archive/work/applescript-research/contracts/research.deep.json.SOURCE.md",
+      "bytes": 595,
+      "sha256": "fefd5df1023a0c3af0e597f26035fee9fef997303605bf101aacdd68428579dd"
+    },
+    {
+      "path": "archive/work/applescript-research/contracts/scrape.website.json.SOURCE.md",
+      "bytes": 603,
+      "sha256": "fdce1ff794f744302a6501cffa346c9b0a1801c7dc1fe3a878e4d0287d307a87"
+    },
+    {
+      "path": "archive/work/applescript-research/contracts/search.web.json.SOURCE.md",
+      "bytes": 597,
+      "sha256": "84b0025ae25c48a9ef0bace9795b94a0309db3f53f9ee0b2f1af9a008159d5db"
+    },
+    {
+      "path": "archive/work/applescript-research/discovery-requests.json",
+      "bytes": 1421,
+      "sha256": "e117caf5ec707f20504a87ed5a771c58dfce883966b6b3b33b26913439366c58"
+    },
+    {
+      "path": "archive/work/applescript-research/primary-verification-request.json",
+      "bytes": 701,
+      "sha256": "4c0e6a795a28e1972dbe0094f4af7e215132960af9903713660f1ef19d5a9ac9"
+    },
+    {
+      "path": "archive/work/applescript-research/private-source-cache/primary-verification.metadata.json",
+      "bytes": 3337,
+      "sha256": "9b0c651951a63c5024585b9246e936026f9e4c607f257de8c232a0119a96715c"
+    },
+    {
+      "path": "archive/work/applescript-research/runtime/remote-deepapi.sh",
+      "bytes": 16720,
+      "sha256": "e4e38a7050284ce8d2453045860912115f22424b66cf50dead6a1158811c9f3f"
+    },
+    {
+      "path": "archive/work/applescript-research/runtime/research-workflow.py",
+      "bytes": 45048,
+      "sha256": "be0309750cb5c822c9e733b5f33d2aa9487a4ee578f41c73ad65cc56deef9eeb"
+    },
+    {
+      "path": "archive/work/applescript-research/scout-manifest.json",
+      "bytes": 7189,
+      "sha256": "ed1668fc001bf4596ae754dbac58683b2889af02b6c71634406d2ec7e5a83eed"
+    },
+    {
+      "path": "archive/work/applescript-research/scout-state.json",
+      "bytes": 92288,
+      "sha256": "307f98a5df8ec4fb8097a3e75c658ea19e5924d032d56a7476b5222f2ee68e8b"
+    },
+    {
+      "path": "archive/work/applescript-research/scout-state.json.log",
+      "bytes": 690,
+      "sha256": "47358c6fec11cf9725e370063a7f2cb39935e9142a917640b1ebaa0eed4bcbc5"
+    },
+    {
+      "path": "archive/work/applescript-research/source-page-request.json",
+      "bytes": 988,
+      "sha256": "fe552a2ab5d1a42f5ecbc2d10729a719000273e4436ae327a4a6f26359e8398e"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/CHECKPOINT.md",
+      "bytes": 5004,
+      "sha256": "2c3b2d3872d99a780d762b4f2403060509514df391017383ab1d3bb57a96e919"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/COMPLETED_REPORT.md",
+      "bytes": 6732,
+      "sha256": "0d82fd52bafe434fff95b2e5a81c6c2088767fc4aba2f9cd22d1bdf1803e415d"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/DELIVERY_README.md",
+      "bytes": 1621,
+      "sha256": "b5b88632e1a2b042ee37ba4b7fd8fee03517732fa34fec9514ea00d0343bdd90"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/FINAL_LOCAL_VERIFICATION.json",
+      "bytes": 488,
+      "sha256": "54be1c3fee061915fd4a770be4a84c8c7626bf4a7f7d32696532ec0bd5235259"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/FINAL_VALIDATION.json",
+      "bytes": 4083,
+      "sha256": "17c56ddb4efe7310d6c7342c1a7be310cd565e365adee4a5db79a4782d514477"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/INSTALL_REQUEST.json",
+      "bytes": 429,
+      "sha256": "01389ef6ab27dfed25752a67f5c15040f93ab14045e915c4598c0cdcb32f9772"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/UNIVERSAL-STATUS.md",
+      "bytes": 3334,
+      "sha256": "4df7a01b168cec6a336cc3c6e21f7f8ffad05d1ae901bd7ed9f145be7c83cc08"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/VALIDATION.md",
+      "bytes": 3346,
+      "sha256": "c8e258c62c7e08c79bcdcc40349cc3b7572897dcb05a81ef4542c20aff22563b"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/after/accessible_approval_broker.py",
+      "bytes": 38221,
+      "sha256": "882764312471c4ac7b46738b859bd7bed14138dd2236e1921fa282ca28d2c143"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/after/applescript_approval_gateway.py",
+      "bytes": 11275,
+      "sha256": "a01ebd7c6162800ca79e9f16917906f64852e29c32b43691513adb5f46316a48"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/after/approved_command_wrapper.py",
+      "bytes": 4872,
+      "sha256": "e6ce6a361a80f3796f0d920c7608408b9d477351ed263c738ce1bbdcd2f3e918"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/after/exact_command_scope.py",
+      "bytes": 11767,
+      "sha256": "f2090f6c3e99cbe3d3ae9c9b5f761598273c34c37f23d7fa8f2f26c769e3c322"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/after/remote-deepapi.sh",
+      "bytes": 16286,
+      "sha256": "3385307c34036ef359c4d76be419735919211043e72355bfc2d122ee758de30d"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/after/similar_command_analyzer.py",
+      "bytes": 82072,
+      "sha256": "2df70f21da2968205a3ce36f0fbd429113afb8dc76d9f4dec885a2600194c353"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/after/test_exact_command_approvals.py",
+      "bytes": 17700,
+      "sha256": "bdca3701faa9c33ec764f39a6f8f6c443a902395dabc764fd9b4a070385f49c7"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/after/test_similar_command_workflow.py",
+      "bytes": 30550,
+      "sha256": "dc7dc742e279b5d2d56c59b3694e80a36f39a1969387a358a05cccf3872d454f"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/assemble_delivery.py",
+      "bytes": 6732,
+      "sha256": "aa14ceba23b902e2f57405d7709134597b8e037292c474adb21e847b38f110be"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/before/accessible_approval_broker.py",
+      "bytes": 32563,
+      "sha256": "4cde2396117a3a5cb485ee4a9e37782241ae17b0e4997372d5e1f9c4548faef7"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/before/applescript_approval_gateway.py",
+      "bytes": 11275,
+      "sha256": "a01ebd7c6162800ca79e9f16917906f64852e29c32b43691513adb5f46316a48"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/before/approved_command_wrapper.py",
+      "bytes": 4872,
+      "sha256": "e6ce6a361a80f3796f0d920c7608408b9d477351ed263c738ce1bbdcd2f3e918"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/before/remote-deepapi.sh",
+      "bytes": 15838,
+      "sha256": "351b4443bddab77fc6f6319180d758712dab60131c1f03267e072ac3d9439c24"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/before/similar_command_analyzer.py",
+      "bytes": 82121,
+      "sha256": "67826a5033d08612110e5dd54a59b5c4bf3b91f36d216f6eab4c907ed175bd1e"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/before/test_similar_command_workflow.py",
+      "bytes": 30519,
+      "sha256": "385e7b0efae4b3de63b0e5c7b30ddbd18187b27a891c1c729cbb26ee1ffce6ba"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/changes.patch",
+      "bytes": 47048,
+      "sha256": "5b486e0d1f1a931469c085ea2a51d7e9c9cfe50450711b9789ca4e6439c9b6bc"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/install_universal_broker.py",
+      "bytes": 6873,
+      "sha256": "4ef60278c685580d25e8b7c52682eaf931e38590b0236884a4f33d1012ccc061"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/installation-backup/RESTORE.json",
+      "bytes": 442,
+      "sha256": "a00df1d71ef8617d10ad4bf8e7fca785eeaad74ff3f604c5300a71b2d1a559cb"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/installation-backup/accessible_approval_broker.py",
+      "bytes": 32563,
+      "sha256": "4cde2396117a3a5cb485ee4a9e37782241ae17b0e4997372d5e1f9c4548faef7"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/installation-backup/similar_command_analyzer.py",
+      "bytes": 82121,
+      "sha256": "67826a5033d08612110e5dd54a59b5c4bf3b91f36d216f6eab4c907ed175bd1e"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/installation-backup/test_similar_command_workflow.py",
+      "bytes": 30519,
+      "sha256": "385e7b0efae4b3de63b0e5c7b30ddbd18187b27a891c1c729cbb26ee1ffce6ba"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/launcher-scope-proposal.patch",
+      "bytes": 1693,
+      "sha256": "19961d3ad448b145d20720a2fe87e1b65b4ef0b3b21c619cd3969aa75b9deea1"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/test_universal_install.py",
+      "bytes": 3537,
+      "sha256": "ccedec4d22d486821c4c49fc12a907c95232d8a15add14634cb6b39e488dd2a0"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/universal-after/accessible_approval_broker.py",
+      "bytes": 35186,
+      "sha256": "317186122448dcdf81e4660b364ddd0f2504e58ec72da2d42c0543252d0745d8"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/universal-after/applescript_approval_gateway.py",
+      "bytes": 11275,
+      "sha256": "a01ebd7c6162800ca79e9f16917906f64852e29c32b43691513adb5f46316a48"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/universal-after/approved_command_wrapper.py",
+      "bytes": 4872,
+      "sha256": "e6ce6a361a80f3796f0d920c7608408b9d477351ed263c738ce1bbdcd2f3e918"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/universal-after/broker_policy.py",
+      "bytes": 1638,
+      "sha256": "e2d244b9d0389be159bbeb0b64d0e6e8442e25bb2e11df578afb87d7f4e94e4b"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/universal-after/similar_command_analyzer.py",
+      "bytes": 81343,
+      "sha256": "7273e9575c8b337d253d49b27378e709d113560dcc836ed343ca45da2a51f164"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/universal-after/test_similar_command_workflow.py",
+      "bytes": 30550,
+      "sha256": "dc7dc742e279b5d2d56c59b3694e80a36f39a1969387a358a05cccf3872d454f"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/universal-after/test_universal_broker.py",
+      "bytes": 9789,
+      "sha256": "4c0710a43c27491ae89d31aa4b42dc52f8a882414b88de548d0c38991351d481"
+    },
+    {
+      "path": "archive/work/approval-broker-fix/universal-changes.patch",
+      "bytes": 25831,
+      "sha256": "aa8567657001d8a9f02765ed97aa1f9fb85c0667c6b6a93a03354dbf03c08f47"
+    },
+    {
+      "path": "archive/work/deepapi-source-minimum/FINAL_REMOTE_VERIFICATION.json",
+      "bytes": 330,
+      "sha256": "e471f191c323a6977acefc1110a8da9803828067183fba9aec14f9c0cc24e826"
+    },
+    {
+      "path": "archive/work/deepapi-source-minimum/UPDATE_PERSISTENCE_TEST.json",
+      "bytes": 329,
+      "sha256": "24e54c7cc8f7680c231ab247dca893b204575d80ae56cf176af44081a3c925b0"
+    },
+    {
+      "path": "archive/work/deepapi-source-minimum/apply_remote_search_rule.py",
+      "bytes": 3100,
+      "sha256": "a876ea8978878953f01ecc4df99c309618dafa5400288ea8c576f635409bb582"
+    },
+    {
+      "path": "archive/work/deepapi-source-minimum/before/SKILL.md",
+      "bytes": 27286,
+      "sha256": "bc0d52c7b7c0f6df913a83257fa83f7e41e45866197f03087eb013dcccf9e1c3"
+    },
+    {
+      "path": "archive/work/deepapi-source-minimum/current-local-SKILL.md",
+      "bytes": 27296,
+      "sha256": "ff6407582940bed19e1e2cae4bdb6657bb5a0c5fea82860de5afc2aa57d01998"
+    },
+    {
+      "path": "archive/work/deepapi-source-minimum/local-before-search-change.md",
+      "bytes": 27267,
+      "sha256": "3b1bc1256cb474d32898dd44150f31c56ccf378b64232e162401dea60defb66c"
+    },
+    {
+      "path": "archive/work/deepapi-source-minimum/remote-after/SKILL.md.SOURCE.md",
+      "bytes": 609,
+      "sha256": "6750b7a43741b608f0cd7db40a979a66e1370c0b7a0c4d9e44c4dd2e9e8367ea"
+    },
+    {
+      "path": "archive/work/deepapi-source-minimum/remote-after/deep-research.md.SOURCE.md",
+      "bytes": 633,
+      "sha256": "c532cfd5d52b9e6bf5db071090d9b505620beead9926f3d609cdc916921d7300"
+    },
+    {
+      "path": "archive/work/deepapi-source-minimum/remote-before/SKILL.md.SOURCE.md",
+      "bytes": 610,
+      "sha256": "3260e5cfd328c288e2f8258be1d76edba349473c8ad27f047b70439e17515ea9"
+    },
+    {
+      "path": "archive/work/deepapi-source-minimum/remote-before/deep-research.md.SOURCE.md",
+      "bytes": 634,
+      "sha256": "83497542b8b7007908b57feef8ad9cabf900fee94196297249753d6baf7f7ad8"
+    },
+    {
+      "path": "archive/work/deepapi-source-minimum/test_update_persistence.py",
+      "bytes": 3322,
+      "sha256": "94416f24964f328f5633b4fd3493d485978c70f8f1f81c7c23fe7b164d1a9aeb"
+    },
+    {
+      "path": "archive/work/deepapi-source-minimum/updater-inspected.sh.SOURCE.md",
+      "bytes": 612,
+      "sha256": "5df6bc4e31a921addbf99107fc383aa9329d93693e6ef6752fd4d9abfba425c3"
+    },
+    {
+      "path": "docs/ACCESSIBILITY.md",
+      "bytes": 1146,
+      "sha256": "d52966561844bafa50ebd9920460bd8249c96a265263c108644ee26e61d3b6d3"
+    },
+    {
+      "path": "docs/PUBLICATION.md",
+      "bytes": 3969,
+      "sha256": "16817d931bb46b80a7c7c5ef3637cd46e9415b1ee394410f04cab7f54fcaf272"
+    },
+    {
+      "path": "docs/RESEARCH-2026-09-11.md",
+      "bytes": 5552,
+      "sha256": "4f3907c310a44cda367489e43627fe03f7261aa6dbba51267074abb9dc8014fa"
+    },
+    {
+      "path": "docs/SECURITY.md",
+      "bytes": 2124,
+      "sha256": "d2bc0f3b2dc008fc692c228d99cf741d85e1c8e6adc651f6c893a4f661a91090"
+    },
+    {
+      "path": "examples/policy_demo.py",
+      "bytes": 1301,
+      "sha256": "0623d9816e560de509d1368496621a916aed2e9001d758d0ed4076a4c70f14c1"
+    },
+    {
+      "path": "prompt.md",
+      "bytes": 4975,
+      "sha256": "6b2415da43d58e919a583c8b4b467d60eb9bbed0a09a2158aa9ed0fc2d180b0f"
+    },
+    {
+      "path": "src/accessible_approval_broker.py",
+      "bytes": 35186,
+      "sha256": "317186122448dcdf81e4660b364ddd0f2504e58ec72da2d42c0543252d0745d8"
+    },
+    {
+      "path": "src/applescript_approval_gateway.py",
+      "bytes": 11275,
+      "sha256": "a01ebd7c6162800ca79e9f16917906f64852e29c32b43691513adb5f46316a48"
+    },
+    {
+      "path": "src/approved_command_wrapper.py",
+      "bytes": 4872,
+      "sha256": "e6ce6a361a80f3796f0d920c7608408b9d477351ed263c738ce1bbdcd2f3e918"
+    },
+    {
+      "path": "src/broker_policy.py",
+      "bytes": 1638,
+      "sha256": "e2d244b9d0389be159bbeb0b64d0e6e8442e25bb2e11df578afb87d7f4e94e4b"
+    },
+    {
+      "path": "src/similar_command_analyzer.py",
+      "bytes": 81343,
+      "sha256": "7273e9575c8b337d253d49b27378e709d113560dcc836ed343ca45da2a51f164"
+    },
+    {
+      "path": "src/test_similar_command_workflow.py",
+      "bytes": 30900,
+      "sha256": "7c56c3787e9066a940c49a86ee02d378a368258c3af90e30ca133cdc98e85011"
+    },
+    {
+      "path": "src/test_universal_broker.py",
+      "bytes": 9789,
+      "sha256": "4c0710a43c27491ae89d31aa4b42dc52f8a882414b88de548d0c38991351d481"
+    }
+  ]
+}

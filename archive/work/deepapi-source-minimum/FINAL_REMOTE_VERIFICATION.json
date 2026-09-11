@@ -1,0 +1,8 @@
+{
+  "skill_sha256": "9a10fe867ddf46e1044153d44742487ce5f540b753e4fe9f084cb5936a6eb778",
+  "reference_sha256": "2e292370940774a7a37047a1780502f9fd632a1a5450b8a089b4f7511cd27f66",
+  "fixed_search_rule_absent": true,
+  "explicit_no_minimum": true,
+  "updater_will_preserve_customized_router": true,
+  "scout_scaling_present": true
+}

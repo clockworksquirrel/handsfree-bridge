@@ -1,0 +1,82 @@
+{
+  "status": "succeeded",
+  "requestCount": 1,
+  "results": [
+    {
+      "questionId": "primary-verification",
+      "response": {
+        "requestId": "[REDACTED_OPERATION_ID]",
+        "route": "/v1/scrape/website",
+        "capability": "scrape.website",
+        "status": "succeeded",
+        "replayed": false,
+        "costFinal": true,
+        "output": [
+          {
+            "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_classes.html",
+            "title": "Class Reference",
+            "description": "Defines the AppleScript scripting language. Includes many brief sample scripts.",
+            "language": "en",
+            "omittedSourceText": {
+              "markdown": {
+                "characters": 67406,
+                "sha256": "0a3e6e28adc03cfa32525e9e41e05526d2a6d5c18a751aea782aa1cc55cd27fa"
+              }
+            },
+            "sourceTextPolicy": "Full third-party documentation is not redistributed; use the source URL and authored research report."
+          },
+          {
+            "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_cmds.html",
+            "title": "Commands Reference",
+            "description": "Defines the AppleScript scripting language. Includes many brief sample scripts.",
+            "language": "en",
+            "omittedSourceText": {
+              "markdown": {
+                "characters": 144503,
+                "sha256": "25dd71b475da36ee7d4eb5e60186e0b30cc83802f3126095e290c078eba0a373"
+              }
+            },
+            "sourceTextPolicy": "Full third-party documentation is not redistributed; use the source URL and authored research report."
+          },
+          {
+            "url": "http://developer.apple.com/technotes/tn2002/tn2065.html",
+            "title": "Technical Note TN2065: do shell script in AppleScript",
+            "description": "TN2065: Frequently Asked Questions about the AppleScript ",
+            "language": "en",
+            "omittedSourceText": {
+              "markdown": {
+                "characters": 39052,
+                "sha256": "cd808db460f3f02f9cff9a0f74d4645190f2be06a70a315f67da51f88f83f07d"
+              }
+            },
+            "sourceTextPolicy": "Full third-party documentation is not redistributed; use the source URL and authored research report."
+          }
+        ],
+        "list": {
+          "resultCount": 3,
+          "totalCount": null,
+          "hasMore": true,
+          "listState": "results"
+        },
+        "urlOutcomes": [
+          {
+            "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_classes.html",
+            "status": "returned"
+          },
+          {
+            "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_cmds.html",
+            "status": "returned"
+          },
+          {
+            "url": "http://developer.apple.com/technotes/tn2002/tn2065.html",
+            "status": "returned"
+          }
+        ],
+        "next": null,
+        "error": null,
+        "skillVersion": "8d3db9c52227"
+      }
+    }
+  ],
+  "deferredQuestionIds": []
+}

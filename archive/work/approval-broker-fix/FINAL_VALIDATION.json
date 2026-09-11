@@ -1,0 +1,43 @@
+{
+  "installedBrokerTests": "test_action_text_cannot_enable_universal_mode (__main__.UniversalBrokerTests.test_action_text_cannot_enable_universal_mode) ... ok\ntest_all_native_mcp_tool_families_are_in_user_selected_mode (__main__.UniversalBrokerTests.test_all_native_mcp_tool_families_are_in_user_selected_mode) ... ok\ntest_applescript_defaults_and_line_endings_are_stable_in_prompt_mode (__main__.UniversalBrokerTests.test_applescript_defaults_and_line_endings_are_stable_in_prompt_mode) ... ok\ntest_applescript_gateway_uses_same_global_policy_without_grants (__main__.UniversalBrokerTests.test_applescript_gateway_uses_same_global_policy_without_grants) ... ok\ntest_complete_gateway_decision_keeps_argument_validation (__main__.UniversalBrokerTests.test_complete_gateway_decision_keeps_argument_validation) ... ok\ntest_default_is_prompting (__main__.UniversalBrokerTests.test_default_is_prompting) ... ok\ntest_description_changes_do_not_create_new_prompt_identity (__main__.UniversalBrokerTests.test_description_changes_do_not_create_new_prompt_identity) ... ok\ntest_disabling_mode_restores_prompting_without_residual_grants (__main__.UniversalBrokerTests.test_disabling_mode_restores_prompting_without_residual_grants) ... ok\ntest_external_rule_failure_does_not_create_an_alternate_executor (__main__.UniversalBrokerTests.test_external_rule_failure_does_not_create_an_alternate_executor) ... ok\ntest_forwarded_text_still_cannot_manufacture_grants (__main__.UniversalBrokerTests.test_forwarded_text_still_cannot_manufacture_grants) ... ok\ntest_internal_persistence_helper_still_requires_valid_token (__main__.UniversalBrokerTests.test_internal_persistence_helper_still_requires_valid_token) ... ok\ntest_malformed_modes_and_unsafe_permissions_fail_closed (__main__.UniversalBrokerTests.test_malformed_modes_and_unsafe_permissions_fail_closed) ... ok\ntest_original_ssh_host_case_and_any_shell_or_ssh_host (__main__.UniversalBrokerTests.test_original_ssh_host_case_and_any_shell_or_ssh_host) ... ok\ntest_prompt_mode_does_not_offer_unsupported_exact_persistence (__main__.UniversalBrokerTests.test_prompt_mode_does_not_offer_unsupported_exact_persistence) ... ok\ntest_symlink_policy_is_not_trusted (__main__.UniversalBrokerTests.test_symlink_policy_is_not_trusted) ... ok\ntest_working_directory_is_meaningful_in_prompt_mode (__main__.UniversalBrokerTests.test_working_directory_is_meaningful_in_prompt_mode) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 0.148s\n\nOK\n",
+  "installedWorkflowSuite": {
+    "status": "passed",
+    "redaction": "passed",
+    "inboxPermissions": "0600",
+    "completeAcceptance": "passed",
+    "partialContinuation": "passed",
+    "credentialUrlRejection": "passed",
+    "duplicateCandidateIds": "passed",
+    "crossToolCoverage": "passed",
+    "alwaysAndSimilar": "passed",
+    "combinedRetryDeduplication": "passed",
+    "persistExactDenyRace": "passed",
+    "reportBinding": "passed",
+    "privateSourceRejection": "passed",
+    "shortReportRejection": "passed",
+    "analyzerHashPin": "passed",
+    "symlinkInboxRejection": "passed",
+    "exactCoverage": "passed",
+    "applescriptTimeoutCoverage": "passed",
+    "expandedRedaction": "passed",
+    "mixedCredentialRejection": "passed",
+    "malformedPolicyRejection": "passed",
+    "singleUseApply": "passed",
+    "staleProposalChoiceRejection": "passed",
+    "failedApplyRecovery": "passed",
+    "preflightApplyRecovery": "passed",
+    "denialInboxCleanup": "passed",
+    "testDefaultIsolation": "passed",
+    "fixtureSynthesis": "passed"
+  },
+  "installerTests": "3 tests passed: install, rollback after setting-write failure, and concurrent-edit protection.",
+  "updaterPersistence": {
+    "status": "passed",
+    "customized_router_preserved": true,
+    "managed_reference_refreshed": true,
+    "effective_no_minimum_override_preserved": true,
+    "network_used": false,
+    "live_installations_changed": false,
+    "updater_output": "DeepAPI skill bundle updated in 1 location(s); preserved 1 customized SKILL.md file(s)."
+  }
+}

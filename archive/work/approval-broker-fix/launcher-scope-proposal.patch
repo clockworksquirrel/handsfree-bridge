@@ -1,0 +1,41 @@
+--- before/remote-deepapi.sh	2026-09-11 14:56:43
++++ after/remote-deepapi.sh	2026-09-11 14:57:46
+@@ -1,15 +1,21 @@
+-#!/usr/bin/env bash
++#!/bin/bash -p
+ set -euo pipefail
+ 
++# Do not inherit a different effective identity under Bash's startup isolation.
++if [ "$EUID" -ne "$UID" ]; then
++  printf 'DeepAPI launcher requires matching real and effective user IDs.\n' >&2
++  exit 2
++fi
++
+ host="${DEEPAPI_SSH_HOST:-[SSH_HOST]}"
+ request_timeout_seconds="${DEEPAPI_REQUEST_TIMEOUT_SECONDS:-86400}"
+-if ! printf '%s' "$request_timeout_seconds" | grep -Eq '^[0-9]+$'; then
++if ! printf '%s' "$request_timeout_seconds" | /usr/bin/grep -Eq '^[0-9]+$'; then
+   printf 'DEEPAPI_REQUEST_TIMEOUT_SECONDS must be a non-negative integer.\n' >&2
+   exit 2
+ fi
+ idempotency_key_override="${DEEPAPI_IDEMPOTENCY_KEY:-}"
+ if [ -n "$idempotency_key_override" ] \
+-  && ! printf '%s' "$idempotency_key_override" | grep -Eq '^[A-Za-z0-9._~-]{8,128}$'; then
++  && ! printf '%s' "$idempotency_key_override" | /usr/bin/grep -Eq '^[A-Za-z0-9._~-]{8,128}$'; then
+   printf 'DEEPAPI_IDEMPOTENCY_KEY must be 8-128 URL-safe characters.\n' >&2
+   exit 2
+ fi
+@@ -42,7 +48,11 @@
+ 
+ case "$command_name" in
+   inspect)
+-    ssh "${ssh_options[@]}" "$host" 'set -eu
++    if [ "$#" -ne 1 ] || [ "$host" != "[SSH_HOST]" ]; then
++      printf 'inspect requires the [SSH_HOST] target and no additional arguments.\n' >&2
++      exit 2
++    fi
++    /usr/bin/ssh "${ssh_options[@]}" -o PermitLocalCommand=no -o ClearAllForwardings=yes "$host" 'set -eu
+       actual_host=$(hostname)
+       [ "$actual_host" = "[SSH_HOST]" ] || { printf "unexpected_host=%s\n" "$actual_host"; exit 20; }
+       skill_dir="$HOME/.agents/skills/deepapi"
+

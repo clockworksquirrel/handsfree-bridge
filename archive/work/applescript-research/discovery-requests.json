@@ -1,0 +1,46 @@
+{
+  "maxConcurrency": 5,
+  "failFast": true,
+  "requests": [
+    {
+      "questionId": "discovery-1",
+      "idempotencyKey": "[REDACTED_OPERATION_ID]",
+      "payload": {
+        "query": "site:developer.apple.com/library/archive AppleScript application id bundle identifier tell application",
+        "maxResults": 10
+      }
+    },
+    {
+      "questionId": "discovery-2",
+      "idempotencyKey": "[REDACTED_OPERATION_ID]",
+      "payload": {
+        "query": "site:developer.apple.com/library/archive AppleScript do shell script quoted form administrator privileges",
+        "maxResults": 10
+      }
+    },
+    {
+      "questionId": "discovery-3",
+      "idempotencyKey": "[REDACTED_OPERATION_ID]",
+      "payload": {
+        "query": "site:developer.apple.com/library/archive AppleScript run script load script scripting additions",
+        "maxResults": 10
+      }
+    },
+    {
+      "questionId": "discovery-4",
+      "idempotencyKey": "[REDACTED_OPERATION_ID]",
+      "payload": {
+        "query": "site:support.apple.com macOS control access automation accessibility allow apps control computer",
+        "maxResults": 10
+      }
+    },
+    {
+      "questionId": "discovery-5",
+      "idempotencyKey": "[REDACTED_OPERATION_ID]",
+      "payload": {
+        "query": "site:developer.apple.com/library/archive AppleScript UI scripting System Events frontmost process",
+        "maxResults": 10
+      }
+    }
+  ]
+}

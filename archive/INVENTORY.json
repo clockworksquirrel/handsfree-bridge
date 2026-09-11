@@ -1,0 +1,550 @@
+{
+  "status": "verified",
+  "destination": "[PRIVATE_BUNDLE_ROOT]",
+  "originalsPreserved": true,
+  "liveCredentialOrGrantStoresCollected": false,
+  "copiedFiles": 73,
+  "byteIdenticalFiles": 71,
+  "sanitizedFiles": 2,
+  "files": [
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/CHECKPOINT.md",
+      "destination": "work/approval-broker-fix/CHECKPOINT.md",
+      "bytes": 5004,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/COMPLETED_REPORT.md",
+      "destination": "work/approval-broker-fix/COMPLETED_REPORT.md",
+      "bytes": 6752,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/DELIVERY_README.md",
+      "destination": "work/approval-broker-fix/DELIVERY_README.md",
+      "bytes": 1728,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/FINAL_LOCAL_VERIFICATION.json",
+      "destination": "work/approval-broker-fix/FINAL_LOCAL_VERIFICATION.json",
+      "bytes": 488,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/FINAL_VALIDATION.json",
+      "destination": "work/approval-broker-fix/FINAL_VALIDATION.json",
+      "bytes": 4087,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/INSTALL_REQUEST.json",
+      "destination": "work/approval-broker-fix/INSTALL_REQUEST.json",
+      "bytes": 477,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/UNIVERSAL-STATUS.md",
+      "destination": "work/approval-broker-fix/UNIVERSAL-STATUS.md",
+      "bytes": 3331,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/VALIDATION.md",
+      "destination": "work/approval-broker-fix/VALIDATION.md",
+      "bytes": 3348,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/assemble_delivery.py",
+      "destination": "work/approval-broker-fix/assemble_delivery.py",
+      "bytes": 6824,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/changes.patch",
+      "destination": "work/approval-broker-fix/changes.patch",
+      "bytes": 47050,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/install_universal_broker.py",
+      "destination": "work/approval-broker-fix/install_universal_broker.py",
+      "bytes": 6873,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/launcher-scope-proposal.patch",
+      "destination": "work/approval-broker-fix/launcher-scope-proposal.patch",
+      "bytes": 1693,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/test_universal_install.py",
+      "destination": "work/approval-broker-fix/test_universal_install.py",
+      "bytes": 3537,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/universal-changes.patch",
+      "destination": "work/approval-broker-fix/universal-changes.patch",
+      "bytes": 25833,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/installation-backup/RESTORE.json",
+      "destination": "work/approval-broker-fix/installation-backup/RESTORE.json",
+      "bytes": 442,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/installation-backup/accessible_approval_broker.py",
+      "destination": "work/approval-broker-fix/installation-backup/accessible_approval_broker.py",
+      "bytes": 32563,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/installation-backup/similar_command_analyzer.py",
+      "destination": "work/approval-broker-fix/installation-backup/similar_command_analyzer.py",
+      "bytes": 82121,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/installation-backup/test_similar_command_workflow.py",
+      "destination": "work/approval-broker-fix/installation-backup/test_similar_command_workflow.py",
+      "bytes": 30519,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/universal-after/accessible_approval_broker.py",
+      "destination": "work/approval-broker-fix/universal-after/accessible_approval_broker.py",
+      "bytes": 35186,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/universal-after/applescript_approval_gateway.py",
+      "destination": "work/approval-broker-fix/universal-after/applescript_approval_gateway.py",
+      "bytes": 11275,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/universal-after/approved_command_wrapper.py",
+      "destination": "work/approval-broker-fix/universal-after/approved_command_wrapper.py",
+      "bytes": 4872,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/universal-after/broker_policy.py",
+      "destination": "work/approval-broker-fix/universal-after/broker_policy.py",
+      "bytes": 1638,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/universal-after/similar_command_analyzer.py",
+      "destination": "work/approval-broker-fix/universal-after/similar_command_analyzer.py",
+      "bytes": 81343,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/universal-after/test_similar_command_workflow.py",
+      "destination": "work/approval-broker-fix/universal-after/test_similar_command_workflow.py",
+      "bytes": 30550,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/universal-after/test_universal_broker.py",
+      "destination": "work/approval-broker-fix/universal-after/test_universal_broker.py",
+      "bytes": 9791,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/before/accessible_approval_broker.py",
+      "destination": "work/approval-broker-fix/before/accessible_approval_broker.py",
+      "bytes": 32563,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/before/applescript_approval_gateway.py",
+      "destination": "work/approval-broker-fix/before/applescript_approval_gateway.py",
+      "bytes": 11275,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/before/approved_command_wrapper.py",
+      "destination": "work/approval-broker-fix/before/approved_command_wrapper.py",
+      "bytes": 4872,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/before/remote-deepapi.sh",
+      "destination": "work/approval-broker-fix/before/remote-deepapi.sh",
+      "bytes": 15838,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/before/similar_command_analyzer.py",
+      "destination": "work/approval-broker-fix/before/similar_command_analyzer.py",
+      "bytes": 82121,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/before/test_similar_command_workflow.py",
+      "destination": "work/approval-broker-fix/before/test_similar_command_workflow.py",
+      "bytes": 30519,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/after/accessible_approval_broker.py",
+      "destination": "work/approval-broker-fix/after/accessible_approval_broker.py",
+      "bytes": 38221,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/after/applescript_approval_gateway.py",
+      "destination": "work/approval-broker-fix/after/applescript_approval_gateway.py",
+      "bytes": 11275,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/after/approved_command_wrapper.py",
+      "destination": "work/approval-broker-fix/after/approved_command_wrapper.py",
+      "bytes": 4872,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/after/exact_command_scope.py",
+      "destination": "work/approval-broker-fix/after/exact_command_scope.py",
+      "bytes": 11767,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/after/remote-deepapi.sh",
+      "destination": "work/approval-broker-fix/after/remote-deepapi.sh",
+      "bytes": 16286,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/after/similar_command_analyzer.py",
+      "destination": "work/approval-broker-fix/after/similar_command_analyzer.py",
+      "bytes": 82072,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/after/test_exact_command_approvals.py",
+      "destination": "work/approval-broker-fix/after/test_exact_command_approvals.py",
+      "bytes": 17704,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/after/test_similar_command_workflow.py",
+      "destination": "work/approval-broker-fix/after/test_similar_command_workflow.py",
+      "bytes": 30550,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/deepapi-source-minimum/FINAL_REMOTE_VERIFICATION.json",
+      "destination": "work/deepapi-source-minimum/FINAL_REMOTE_VERIFICATION.json",
+      "bytes": 330,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/deepapi-source-minimum/UPDATE_PERSISTENCE_TEST.json",
+      "destination": "work/deepapi-source-minimum/UPDATE_PERSISTENCE_TEST.json",
+      "bytes": 329,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/deepapi-source-minimum/apply_remote_search_rule.py",
+      "destination": "work/deepapi-source-minimum/apply_remote_search_rule.py",
+      "bytes": 3094,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/deepapi-source-minimum/current-local-SKILL.md",
+      "destination": "work/deepapi-source-minimum/current-local-SKILL.md",
+      "bytes": 27293,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/deepapi-source-minimum/local-before-search-change.md",
+      "destination": "work/deepapi-source-minimum/local-before-search-change.md",
+      "bytes": 27264,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/deepapi-source-minimum/test_update_persistence.py",
+      "destination": "work/deepapi-source-minimum/test_update_persistence.py",
+      "bytes": 3322,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/deepapi-source-minimum/updater-inspected.sh",
+      "destination": "work/deepapi-source-minimum/updater-inspected.sh",
+      "bytes": 7002,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/deepapi-source-minimum/remote-after/SKILL.md",
+      "destination": "work/deepapi-source-minimum/remote-after/SKILL.md",
+      "bytes": 23460,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/deepapi-source-minimum/remote-after/deep-research.md",
+      "destination": "work/deepapi-source-minimum/remote-after/deep-research.md",
+      "bytes": 9359,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/deepapi-source-minimum/before/SKILL.md",
+      "destination": "work/deepapi-source-minimum/before/SKILL.md",
+      "bytes": 27283,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/deepapi-source-minimum/remote-before/SKILL.md",
+      "destination": "work/deepapi-source-minimum/remote-before/SKILL.md",
+      "bytes": 23305,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/deepapi-source-minimum/remote-before/deep-research.md",
+      "destination": "work/deepapi-source-minimum/remote-before/deep-research.md",
+      "bytes": 9315,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/RAW_RESULTS_NOTICE.md",
+      "destination": "work/applescript-research/RAW_RESULTS_NOTICE.md",
+      "bytes": 1549,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/RESEARCH_REPORT.md",
+      "destination": "work/applescript-research/RESEARCH_REPORT.md",
+      "bytes": 8078,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/blackboard-discovery.json",
+      "destination": "work/applescript-research/blackboard-discovery.json",
+      "bytes": 13470,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/collect_primary_pages.py",
+      "destination": "work/applescript-research/collect_primary_pages.py",
+      "bytes": 1568,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/discovery-requests.json",
+      "destination": "work/applescript-research/discovery-requests.json",
+      "bytes": 1451,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/primary-verification-request.json",
+      "destination": "work/applescript-research/primary-verification-request.json",
+      "bytes": 716,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/scout-manifest.json",
+      "destination": "work/applescript-research/scout-manifest.json",
+      "bytes": 7258,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/scout-state.json",
+      "destination": "work/applescript-research/scout-state.json",
+      "bytes": 92418,
+      "verification": "expected_sanitization",
+      "notes": [
+        "Removed account balances and debit amounts; complete research outputs, source arrays, request IDs, and statuses unchanged."
+      ]
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/scout-state.json.log",
+      "destination": "work/applescript-research/scout-state.json.log",
+      "bytes": 713,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/source-page-request.json",
+      "destination": "work/applescript-research/source-page-request.json",
+      "bytes": 995,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/contracts/research.deep.json",
+      "destination": "work/applescript-research/contracts/research.deep.json",
+      "bytes": 8373,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/contracts/scrape.website.json",
+      "destination": "work/applescript-research/contracts/scrape.website.json",
+      "bytes": 12225,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/contracts/search.web.json",
+      "destination": "work/applescript-research/contracts/search.web.json",
+      "bytes": 6775,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/private-source-cache/primary-verification.json",
+      "destination": "work/applescript-research/private-source-cache/primary-verification.metadata.json",
+      "bytes": 3350,
+      "verification": "expected_sanitization",
+      "notes": [
+        "Metadata counterpart: omitted full third-party page text and account/billing details; retained URLs, titles, response status, request ID, content lengths and hashes."
+      ]
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/runtime/remote-deepapi.sh",
+      "destination": "work/applescript-research/runtime/remote-deepapi.sh",
+      "bytes": 16720,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/runtime/research-workflow.py",
+      "destination": "work/applescript-research/runtime/research-workflow.py",
+      "bytes": 45048,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/output/approval-broker-assessment-archived.md",
+      "destination": "history/initial-feasibility-report.md",
+      "bytes": 13376,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/output/Accessibility Approval/ASSESSMENT.md",
+      "destination": "history/interim-bundle/ASSESSMENT.md",
+      "bytes": 13376,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/output/Accessibility Approval/EVIDENCE.md",
+      "destination": "history/interim-bundle/EVIDENCE.md",
+      "bytes": 7269,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/output/Accessibility Approval/README.md",
+      "destination": "history/interim-bundle/README.md",
+      "bytes": 2248,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/DELIVERY_README.md",
+      "destination": "README.md",
+      "bytes": 1728,
+      "verification": "byte_identical",
+      "notes": []
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/COMPLETED_REPORT.md",
+      "destination": "FINAL_REPORT.md",
+      "bytes": 6752,
+      "verification": "byte_identical",
+      "notes": []
+    }
+  ],
+  "excluded": [
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/universal-after/__pycache__/accessible_approval_broker.cpython-311.pyc",
+      "reason": "Generated bytecode or transient workflow lock; source and completed state are included."
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/universal-after/__pycache__/applescript_approval_gateway.cpython-311.pyc",
+      "reason": "Generated bytecode or transient workflow lock; source and completed state are included."
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/universal-after/__pycache__/broker_policy.cpython-311.pyc",
+      "reason": "Generated bytecode or transient workflow lock; source and completed state are included."
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/approval-broker-fix/universal-after/__pycache__/similar_command_analyzer.cpython-311.pyc",
+      "reason": "Generated bytecode or transient workflow lock; source and completed state are included."
+    },
+    {
+      "source": "[WORKSPACE_ROOT]/work/applescript-research/scout-state.json.lock",
+      "reason": "Generated bytecode or transient workflow lock; source and completed state are included."
+    }
+  ],
+  "inventoryNote": "This generated inventory does not checksum itself. All other delivered files have verified expected bytes.",
+  "publicExportNote": "Historical private-bundle inventory. Paths and IDs are redacted; original hashes do not verify the public export. See PUBLIC_EXPORT_MANIFEST.json."
+}

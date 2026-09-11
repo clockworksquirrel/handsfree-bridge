@@ -1,0 +1,23 @@
+{
+  "maxConcurrency": 1,
+  "failFast": true,
+  "requests": [
+    {
+      "questionId": "source-pages",
+      "idempotencyKey": "[REDACTED_OPERATION_ID]",
+      "payload": {
+        "urls": [
+          "https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/CallCommandLineUtilities.html",
+          "https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/AutomatetheUserInterface.html",
+          "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_load_script.html",
+          "https://support.apple.com/guide/mac-help/allow-apps-to-control-other-apps-on-mac-mchl07817563/mac",
+          "https://support.apple.com/en-in/guide/mac-help/mh43185/mac"
+        ],
+        "maxDepth": 0,
+        "waitForFinishSecs": 1,
+        "contentFormat": "markdown",
+        "maxChars": 250000
+      }
+    }
+  ]
+}

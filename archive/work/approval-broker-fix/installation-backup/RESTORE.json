@@ -1,0 +1,10 @@
+{
+  "originalPolicy": "absent",
+  "originalFiles": {
+    "broker_policy.py": null,
+    "similar_command_analyzer.py": "48cbf6b0ab82c8a7e82cad426c6baa2286d6677b0c204fa64a0f9cc527aa6409",
+    "accessible_approval_broker.py": "4cde2396117a3a5cb485ee4a9e37782241ae17b0e4997372d5e1f9c4548faef7",
+    "test_similar_command_workflow.py": "385e7b0efae4b3de63b0e5c7b30ddbd18187b27a891c1c729cbb26ee1ffce6ba",
+    "test_universal_broker.py": null
+  }
+}

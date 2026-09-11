@@ -1,0 +1,40 @@
+{
+  "name": "AppleScript permission boundaries and universal broker mode",
+  "maxConcurrency": 3,
+  "failFast": true,
+  "autoContinue": true,
+  "coordination": {
+    "mode": "barrier",
+    "compression": "grug",
+    "sharedContextChars": 14000
+  },
+  "questions": [
+    {
+      "id": "apple-events-and-code-scout",
+      "phase": 0,
+      "role": "AppleScript identity and code-dependency scout",
+      "mode": "clean",
+      "query": "Explain AppleScript application identity and code-dependency edge cases relevant to a universal approval broker: targeting apps by name or bundle identifier, code or commands built at runtime, and load script or script libraries. Explain why an unchanged outer script does not necessarily mean an unchanged runtime target or dependency. Limit your answer to these language/code issues, not macOS permission settings or administrator authentication.",
+      "context": "A user has chosen universal no-prompt mode in their own tool approval broker, covering arbitrary shell/SSH commands and AppleScript. This setting is local broker behavior, not a macOS privacy permission or a waiver of the user's task boundaries. Five discovery searches and an official-page fetch have already completed. Use the known evidence below instead of restarting discovery. Fetch provenance: [REDACTED_ID]. Retrieved Apple guidance says load script loads a compiled script from a named file and allows calling its handlers. Source: https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_load_script.html . Discovery also identified https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_classes.html and https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_cmds.html . Inspect only relevant application/run script sections if needed.",
+      "instructions": "Use primary Apple documentation. Build on the supplied retrieved findings and source URLs; do not repeat broad discovery. Read only missing details needed for your scope. Do not execute commands or alter any system. Return a complete but focused brief of about 350-450 words, paraphrasing rather than quoting passages. Include exact direct source URLs, explain uncertainties and archived-vs-current documentation limits, and distinguish evidence from inference. End with TERMINAL_STATUS: FINISHED, PARTIAL, BLOCKED, or FAILED. FINISHED requires your assigned scope and citations. Do not offer a way around OS security controls."
+    },
+    {
+      "id": "shell-and-privileges-scout",
+      "phase": 0,
+      "role": "Shell execution and privilege-boundary scout",
+      "mode": "clean",
+      "query": "Explain the practical do shell script edge cases: runtime command construction, shell argument quoting, executable/environment differences from interactive Terminal, and the difference between AppleScript administrator authorization and a user's reported passwordless sudo. Explain what remains outside a custom broker's no-prompt setting. Do not audit this user's machine or discuss application identity/UI element targeting.",
+      "context": "A user has chosen universal no-prompt mode in their own tool approval broker, covering arbitrary shell/SSH commands and AppleScript. This setting is local broker behavior, not a macOS privacy permission or a waiver of the user's task boundaries. Five discovery searches and an official-page fetch have already completed. Use the known evidence below instead of restarting discovery. Fetch provenance: [REDACTED_ID]. Retrieved Apple command-line guide states do shell script accepts a command string, allows runtime concatenation, and recommends quoted form for data passed to the shell: https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/CallCommandLineUtilities.html . It links Technical Note TN2065 at http://developer.apple.com/technotes/tn2002/tn2065.html . Follow its official redirect if needed. The user reports passwordless sudo; treat that only as reported context, not verified elevation or macOS privacy permission.",
+      "instructions": "Use primary Apple documentation. Build on the supplied retrieved findings and source URLs; do not repeat broad discovery. Read only missing details needed for your scope. Do not execute commands or alter any system. Return a complete but focused brief of about 350-450 words, paraphrasing rather than quoting passages. Include exact direct source URLs, explain uncertainties and archived-vs-current documentation limits, and distinguish evidence from inference. End with TERMINAL_STATUS: FINISHED, PARTIAL, BLOCKED, or FAILED. FINISHED requires your assigned scope and citations. Do not offer a way around OS security controls."
+    },
+    {
+      "id": "macos-permissions-scout",
+      "phase": 0,
+      "role": "macOS privacy and UI-scripting scout",
+      "mode": "clean",
+      "query": "Explain which macOS permission prompts may remain when an agent's own broker uses universal no-prompt mode. Distinguish Automation app-to-app control from Accessibility UI scripting and explain practical target-process/window/focus limitations. State the legitimate per-app setup and limits of claiming no future prompts. Do not propose bypassing privacy controls, editing TCC databases, or granting unrelated capabilities.",
+      "context": "A user has chosen universal no-prompt mode in their own tool approval broker, covering arbitrary shell/SSH commands and AppleScript. This setting is local broker behavior, not a macOS privacy permission or a waiver of the user's task boundaries. Five discovery searches and an official-page fetch have already completed. Use the known evidence below instead of restarting discovery. Fetch provenance: [REDACTED_ID]. The current retrieved Apple Support pages describe per-app Automation and Accessibility controls: https://support.apple.com/guide/mac-help/allow-apps-to-control-other-apps-on-mac-mchl07817563/mac and https://support.apple.com/en-in/guide/mac-help/mh43185/mac . Retrieved archived UI-scripting guide explains System Events process targeting, element hierarchy, and setting frontmost before UI actions: https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/AutomatetheUserInterface.html . Use current support pages for settings wording and the archive only for language/UI concepts.",
+      "instructions": "Use primary Apple documentation. Build on the supplied retrieved findings and source URLs; do not repeat broad discovery. Read only missing details needed for your scope. Do not execute commands or alter any system. Return a complete but focused brief of about 350-450 words, paraphrasing rather than quoting passages. Include exact direct source URLs, explain uncertainties and archived-vs-current documentation limits, and distinguish evidence from inference. End with TERMINAL_STATUS: FINISHED, PARTIAL, BLOCKED, or FAILED. FINISHED requires your assigned scope and citations. Do not offer a way around OS security controls."
+    }
+  ]
+}

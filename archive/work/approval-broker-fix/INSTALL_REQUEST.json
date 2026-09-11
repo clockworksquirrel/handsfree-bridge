@@ -1,0 +1,8 @@
+{
+  "cmd": "/usr/bin/python3 '[WORKSPACE_ROOT]/work/approval-broker-fix/install_universal_broker.py' --install",
+  "workdir": "[WORKSPACE_ROOT]",
+  "yield_time_ms": 10000,
+  "max_output_tokens": 5000,
+  "sandbox_permissions": "require_escalated",
+  "justification": "May I install the tested universal no-prompt mode in your custom approval broker, with a backup, without changing Codex sandbox settings or macOS permissions?"
+}

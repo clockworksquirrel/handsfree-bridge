@@ -1,0 +1,16 @@
+{
+  "installed_files_match": {
+    "broker_policy.py": true,
+    "similar_command_analyzer.py": true,
+    "accessible_approval_broker.py": true,
+    "test_similar_command_workflow.py": true,
+    "test_universal_broker.py": true
+  },
+  "broker_mode": "no_prompt",
+  "policy_root": "[USER_HOME]/.codex/accessible-approvals",
+  "local_link_matches": true,
+  "scout_workflow_unchanged": true,
+  "no_five_search_minimum": true,
+  "no_five_source_minimum": true,
+  "launcher_unchanged": true
+}

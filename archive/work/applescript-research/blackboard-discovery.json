@@ -1,0 +1,277 @@
+{
+  "scope": "AppleScript edge cases and permission boundaries with user-selected universal broker mode",
+  "discovery": [
+    {
+      "id": "discovery-1",
+      "requestId": "[REDACTED_OPERATION_ID]",
+      "status": "succeeded",
+      "query": "site:developer.apple.com/library/archive AppleScript application id bundle identifier tell application",
+      "results": [
+        {
+          "title": "Commands Reference - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_cmds.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "AppleScript Fundamentals - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "Control Statements Reference - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_control_statements.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "Class Reference - AppleScript Language Guide - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_classes.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "AppleScript Lexical Conventions - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_lexical_conventions.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "Reference Forms - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_reference_forms.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "About Handlers - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_about_handlers.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "Introduction to AppleScript Language Guide - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "Documentation Archive - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/navigation/"
+        },
+        {
+          "title": "Calendar Scripting Guide: Locating an Event - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/CalendarScriptingGuide/Calendar-LocateanEvent.html",
+          "dateText": "Sep 13, 2016"
+        }
+      ]
+    },
+    {
+      "id": "discovery-2",
+      "requestId": "[REDACTED_OPERATION_ID]",
+      "status": "succeeded",
+      "query": "site:developer.apple.com/library/archive AppleScript do shell script quoted form administrator privileges",
+      "results": [
+        {
+          "title": "Commands Reference - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_cmds.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "AppleScript Fundamentals - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "AppleScript Language Guide - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/Index/index_of_book.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "Documentation Archive - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/navigation/"
+        }
+      ]
+    },
+    {
+      "id": "discovery-3",
+      "requestId": "[REDACTED_OPERATION_ID]",
+      "status": "succeeded",
+      "query": "site:developer.apple.com/library/archive AppleScript run script load script scripting additions",
+      "results": [
+        {
+          "title": "Mac Automation Scripting Guide: Calling Command-Line Tools",
+          "url": "https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/CallCommandLineUtilities.html",
+          "dateText": "Jun 13, 2016"
+        },
+        {
+          "title": "Commands Reference - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_cmds.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "Control Statements Reference - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_control_statements.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "AppleScript Fundamentals - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "Introduction to AppleScript Language Guide - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "Mac Automation Scripting Guide: How Mac Scripting Works",
+          "url": "https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/HowMacScriptingWorks.html",
+          "dateText": "Jun 13, 2016"
+        },
+        {
+          "title": "Libraries using Load Script - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_load_script.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "Script Objects - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_script_objects.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "Mac Automation Scripting Guide: Types of Scripts - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/TypesofScripts.html",
+          "dateText": "Jun 13, 2016"
+        },
+        {
+          "title": "Mac Automation Scripting Guide: Using Script Libraries",
+          "url": "https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/UseScriptLibraries.html",
+          "dateText": "Jun 13, 2016"
+        }
+      ]
+    },
+    {
+      "id": "discovery-4",
+      "requestId": "[REDACTED_OPERATION_ID]",
+      "status": "succeeded",
+      "query": "site:support.apple.com macOS control access automation accessibility allow apps control computer",
+      "results": [
+        {
+          "title": "Allow apps to control other apps on Mac - Apple Support",
+          "url": "https://support.apple.com/guide/mac-help/allow-apps-to-control-other-apps-on-mac-mchl07817563/mac"
+        },
+        {
+          "title": "Allow accessibility apps to access your Mac - Apple Support (IN)",
+          "url": "https://support.apple.com/en-in/guide/mac-help/mh43185/mac"
+        },
+        {
+          "title": "Allow apps to automate and control other apps - Apple Support (QA)",
+          "url": "https://support.apple.com/en-qa/guide/mac-help/mchl108e1718/mac"
+        },
+        {
+          "title": "Change Privacy & Security settings on Mac - Apple Support",
+          "url": "https://support.apple.com/en-gb/guide/mac-help/mchl211c911f/mac"
+        },
+        {
+          "title": "Controlling app access to files in macOS - Apple Support (PH)",
+          "url": "https://support.apple.com/en-ph/guide/security-pdf/secddd1d86a6/web"
+        },
+        {
+          "title": "Privacy Preferences Policy Control device management payload ...",
+          "url": "https://support.apple.com/guide/deployment/privacy-preferences-policy-control-payload-dep38df53c2a/web",
+          "dateText": "Jul 29, 2024"
+        },
+        {
+          "title": "Open items automatically when you log in on Mac - Apple Support",
+          "url": "https://support.apple.com/en-mk/guide/mac-help/mh15189/mac"
+        },
+        {
+          "title": "Open a Mac app from an unknown developer - Apple Support",
+          "url": "https://support.apple.com/en-gb/guide/mac-help/mh40616/mac"
+        },
+        {
+          "title": "Allow remote application scripting on Mac - Apple Support (IE)",
+          "url": "https://support.apple.com/en-ie/guide/mac-help/mchlp1398/mac"
+        },
+        {
+          "title": "Quickly turn accessibility features on or off on iPhone - Apple Support",
+          "url": "https://support.apple.com/guide/iphone/quickly-turn-accessibility-features-on-or-off-iph3e2e31a5/ios"
+        }
+      ]
+    },
+    {
+      "id": "discovery-5",
+      "requestId": "[REDACTED_OPERATION_ID]",
+      "status": "succeeded",
+      "query": "site:developer.apple.com/library/archive AppleScript UI scripting System Events frontmost process",
+      "results": [
+        {
+          "title": "Mac Automation Scripting Guide: Automating the User Interface",
+          "url": "https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/AutomatetheUserInterface.html",
+          "dateText": "Jun 13, 2016"
+        },
+        {
+          "title": "Class Reference - AppleScript Language Guide - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_classes.html",
+          "dateText": "Jan 25, 2016"
+        },
+        {
+          "title": "Cocoa Application Layer - Apple Developer",
+          "url": "https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/OSX_Technology_Overview/CocoaApplicationLayer/CocoaApplicationLayer.html",
+          "dateText": "Sep 16, 2015"
+        }
+      ]
+    }
+  ],
+  "sourceFetch": {
+    "requestId": "[REDACTED_OPERATION_ID]",
+    "status": "succeeded",
+    "urlOutcomes": [
+      {
+        "url": "https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/CallCommandLineUtilities.html",
+        "status": "returned"
+      },
+      {
+        "url": "https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/AutomatetheUserInterface.html",
+        "status": "returned"
+      },
+      {
+        "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_load_script.html",
+        "status": "returned"
+      },
+      {
+        "url": "https://support.apple.com/guide/mac-help/allow-apps-to-control-other-apps-on-mac-mchl07817563/mac",
+        "status": "returned"
+      },
+      {
+        "url": "https://support.apple.com/en-in/guide/mac-help/mh43185/mac",
+        "status": "returned"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/CallCommandLineUtilities.html",
+        "title": "Mac Automation Scripting Guide: Calling Command-Line Tools",
+        "reportedTruncation": false,
+        "characters": 5608
+      },
+      {
+        "url": "https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/AutomatetheUserInterface.html",
+        "title": "Mac Automation Scripting Guide: Automating the User Interface",
+        "reportedTruncation": false,
+        "characters": 10646
+      },
+      {
+        "url": "https://support.apple.com/guide/mac-help/allow-apps-to-control-other-apps-on-mac-mchl07817563/mac",
+        "title": "Allow apps to control other apps on Mac - Apple Support",
+        "reportedTruncation": false,
+        "characters": 2037
+      },
+      {
+        "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_load_script.html",
+        "title": "Libraries using Load Script",
+        "reportedTruncation": false,
+        "characters": 3764
+      },
+      {
+        "url": "https://support.apple.com/en-in/guide/mac-help/mh43185/mac",
+        "title": "Allow accessibility apps to access your Mac - Apple Support (IN)",
+        "reportedTruncation": false,
+        "characters": 2715
+      }
+    ]
+  }
+}

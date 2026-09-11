@@ -1,0 +1,1566 @@
+{
+  "schemaVersion": 1,
+  "workflowId": "[REDACTED_OPERATION_ID]",
+  "name": "AppleScript permission boundaries and universal broker mode",
+  "manifestHash": "ec1c60abab393b70c9296c00c2a52111d1a56f58f47f3a2f8ec55e0ca488913e",
+  "coordination": {
+    "mode": "barrier",
+    "compression": "grug",
+    "sharedContextChars": 14000
+  },
+  "autoContinue": true,
+  "status": "succeeded",
+  "createdAt": "2026-09-11T19:33:50.048730+00:00",
+  "updatedAt": "2026-09-11T19:34:22.518254+00:00",
+  "scheduler": {
+    "requestedConcurrency": 3,
+    "maxConcurrency": 3,
+    "failFast": true,
+    "rateLimitPerMinute": 60,
+    "launchBudget": 3,
+    "deferredCount": 0,
+    "retryAfterSecs": null,
+    "currentPhase": 0,
+    "readyCount": 3,
+    "dependencyBlockedCount": 0,
+    "stoppedAt": null,
+    "stopReason": null,
+    "transport": "single_ssh_remote_batch",
+    "perRequestTimeoutSeconds": null,
+    "batchRequestCount": 3,
+    "batchDeferredCount": 0
+  },
+  "questions": {
+    "apple-events-and-code-scout": {
+      "status": "succeeded",
+      "idempotencyKey": "[REDACTED_OPERATION_ID]",
+      "requestId": "[REDACTED_OPERATION_ID]",
+      "startedAt": "2026-09-11T19:33:52.063360+00:00",
+      "finishedAt": "2026-09-11T19:34:22.512065+00:00",
+      "response": {
+        "requestId": "[REDACTED_OPERATION_ID]",
+        "route": "/v1/research/deep",
+        "capability": "research.deep",
+        "status": "succeeded",
+        "replayed": false,
+        "costFinal": true,
+        "output": {
+          "answer": "- **Application identity.** AppleScript can address an application by display name, e.g. `tell application \"TextEdit\"`, or by bundle identifier, e.g. `tell application id \"com.apple.TextEdit\"`. Name lookup is a search/resolution operation and can vary with installed copies, renames, localization, or multiple matching applications. A bundle identifier is a more stable selector for an application bundle, but it identifies the bundle identity—not necessarily one immutable on-disk copy or immutable executable contents. The latter is an inference relevant to approval classification, not a claim that the identifier itself changes. Apple’s archived references cover application objects and commands: https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_classes.html and https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_cmds.html\n\n- **Compile-time terminology versus runtime target.** Literal `tell application` blocks are compiled using the target application’s scripting terminology. A script can nevertheless construct or select an application reference at runtime, and code can be generated and executed with `run script`; in those cases, the effective target and commands are not fully determined by the unchanged outer source. A broker therefore cannot treat the outer script’s text, or its original literal `tell application` target, as a complete description of runtime behavior. The Apple commands reference is the relevant primary-language reference: https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_cmds.html\n\n- **Runtime-built code.** Text assembled from variables and passed to `run script`, or a compiled script selected from a variable path, creates a second code boundary. The generated text can contain a different application name/ID, different commands, or additional `load script`/library references while the wrapper remains byte-for-byte unchanged. This is a language-semantics inference from AppleScript’s compilation/execution model; the supplied archived Apple pages do not specify a broker-oriented identity or hashing rule.\n\n- **`load script`.** Apple documents `load script` as loading a compiled `.scpt` or `.scptd` file and returning a script object whose handlers can be called, commonly through `tell numberLibrary ... end tell`. The named file must exist at the specified location: https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_load_script.html. Consequently, unchanged outer code can execute changed behavior when that file is replaced, its path resolves differently, or its handlers call different applications.\n\n- **Script libraries and stale/new dependencies.** Apple documents libraries as shared handler collections and lists user, system, and bundle-resource locations: https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/UseScriptLibraries.html. For `use script`, documented third-party deployment evidence describes bundle-first search, then library locations, `OSA_LIBRARY_PATH` on OS X 10.11+, and application bundles: https://latenightsw.com/deploying-libraries/. Thus identical source may bind to different library files on different machines or after installation changes. Conversely, `property x : load script ...` executes during compilation and can retain an older loaded script; an explicit runtime `load script` reloads the file each run: https://macscripter.net/t/property-load-script-issue-calling-script-doesnt-recognize-changes/61214. Archived documentation may not reflect current macOS implementation details; search-order and caching claims should therefore be treated as version-sensitive evidence, not guarantees.\n\nTERMINAL_STATUS: FINISHED",
+          "sources": [
+            {
+              "url": "https://discussions.apple.com/thread/2306649",
+              "title": "returning the name of the application to …"
+            },
+            {
+              "url": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/ref-bundle-ids-ios",
+              "title": "iOS/iPadOS bundle IDs for built-in apps in Microsoft Intune"
+            },
+            {
+              "url": "https://www.macscripter.net/t/get-bundle-id-of-a-specific-app/74670",
+              "title": "Get bundle id of a specific app - AppleScriptObjC and Xcode"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/25794613/get-bundle-id-from-a-different-target",
+              "title": "Get Bundle ID from a different target"
+            },
+            {
+              "url": "https://tenjin.com/glossary/bundle-id/",
+              "title": "What Is an App Bundle ID?"
+            },
+            {
+              "url": "https://support.appsflyer.com/hc/en-us/articles/360013555718-Finding-the-Apple-bundle-ID",
+              "title": "Finding the Apple bundle ID – Knowledge Base"
+            },
+            {
+              "url": "https://www.youtube.com/watch?v=qyuw5b00KVc",
+              "title": "How to create an Apple Bundle Identifier - React Native - Part 3"
+            },
+            {
+              "url": "https://simplemdm.com/blog/how-to-find-the-bundle-id-for-an-application/",
+              "title": "How to find the bundle ID for an application"
+            },
+            {
+              "url": "https://blog.devgenius.io/app-id-vs-bundle-id-in-an-ios-application-d06254d2225d",
+              "title": "App Id Vs Bundle Id in an iOS application - Dev Genius"
+            },
+            {
+              "url": "https://forum.latenightsw.com/t/scripting-addition-not-script-library-question-pre-mojave-doesnt-run-as-a-service/3858",
+              "title": "pre-Mojave. Doesn't Run As A Service - AppleScript"
+            },
+            {
+              "url": "https://www.macscripter.net/t/long-script-runtime/65949?page=2",
+              "title": "Long Script Runtime - AppleScript | Mac OS X"
+            },
+            {
+              "url": "https://levelup.gitconnected.com/exploring-applescript-part-5-7e790314263",
+              "title": "Exploring AppleScript — Part 5 - Level Up Coding"
+            },
+            {
+              "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_cmds.html",
+              "title": "Commands Reference"
+            },
+            {
+              "url": "https://www.2doapp.com/docs/macos/applescript/",
+              "title": "AppleScript Automation"
+            },
+            {
+              "url": "https://www3.cs.stonybrook.edu/~tony/hci/AppleScript/AppleScript.html",
+              "title": "AppleScript"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/19533361/how-can-one-view-the-applescript-code-that-executes-on-particular-application",
+              "title": "How can one view the applescript code that executes on ..."
+            },
+            {
+              "url": "https://forum.latenightsw.com/t/script-library-vs-load-script-for-handlers/4148",
+              "title": "Script Library vs Load Script for handlers - AppleScript"
+            },
+            {
+              "url": "https://www.macscripter.net/t/using-my-script-libraries-as-handler-dispensers/77399",
+              "title": "Using my Script Libraries as handler dispensers - AppleScript"
+            },
+            {
+              "url": "https://forum.keyboardmaestro.com/t/any-way-to-use-applescript-libraries/3788",
+              "title": "Any way to use AppleScript libraries?"
+            },
+            {
+              "url": "https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/UseScriptLibraries.html",
+              "title": "Mac Automation Scripting Guide: Using Script Libraries"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/63713759/loading-an-applescript-library-dynamicly",
+              "title": "Loading an applescript library dynamicly"
+            },
+            {
+              "url": "https://nonstrict.eu/wwdcindex/wwdc2013/416/",
+              "title": "Introducing AppleScript Libraries - WWDC 2013"
+            },
+            {
+              "url": "https://macosxautomation.com/mavericks/libraries/simple.html",
+              "title": "AppleScript Libraries: Simple - macOS Automation"
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/294160/what-are-the-advantages-and-or-disadvantages-of-calling-handlers-from-a-library",
+              "title": "What are the advantages and or disadvantages of calling ..."
+            },
+            {
+              "url": "https://www.reddit.com/r/applescript/comments/1x3bmh/looking_for_help_script_to_automatically_change/",
+              "title": "Script to automatically change application preferences."
+            },
+            {
+              "url": "https://forum.latenightsw.com/t/how-does-script-debugger-avoid-modification-of-persistent-properties-in-scpt-files/3074",
+              "title": "How Does Script Debugger Avoid Modification of Persistent ..."
+            },
+            {
+              "url": "https://daringfireball.net/2009/01/applescripts_targetting_safari_or_webkit",
+              "title": "Writing AppleScripts That Dynamically Target Either Safari ..."
+            },
+            {
+              "url": "https://discussions.apple.com/thread/6662728",
+              "title": "Applescript duplicate command runs differ…"
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/321015/can-applescript-display-when-a-script-was-last-run",
+              "title": "Can AppleScript display when a script was last run?"
+            },
+            {
+              "url": "https://www.reddit.com/r/applescript/comments/ll0zti/applescript_problem_since_updating_mac/",
+              "title": "AppleScript Problem since updating Mac"
+            },
+            {
+              "url": "https://forum.keyboardmaestro.com/t/osascript-error-workaround/12180",
+              "title": "Osascript error workaround - Questions & Suggestions"
+            },
+            {
+              "url": "https://macosxautomation.com/applescript/firsttutorial/18.html",
+              "title": "Chapter 01 - AppleScript: Beginner's Tutorial"
+            },
+            {
+              "url": "https://www.alfredforum.com/topic/21649-calling-external-trigger-via-apple-script-steals-focus/",
+              "title": "Calling External Trigger via Apple Script Steals Focus"
+            },
+            {
+              "url": "https://www.macscripter.net/t/referencing-the-current-frontmost-application-window/22551/19",
+              "title": "Referencing the current frontmost application window"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/1308755/how-to-launch-an-app-on-os-x-with-command-line-the-best-way",
+              "title": "macos - How to launch an app on OS X with command line"
+            },
+            {
+              "url": "http://www.apeth.com/rbappscript/04appobject.html",
+              "title": "The Application Object - apeth.com"
+            },
+            {
+              "url": "https://www.mothersruin.com/software/Apparency/use.html",
+              "title": "Apparency | User Guide"
+            },
+            {
+              "url": "https://forum.latenightsw.com/uploads/short-url/bx3PJs6gEcu6quDvl8GHgzJeRG2.pdf",
+              "title": "Assistive Application Programming Guide For macOS 2.5"
+            },
+            {
+              "url": "https://indiscripts.com/blog/public/CocoaScriptingGuide_2007.pdf",
+              "title": "Cocoa Scripting Guide"
+            },
+            {
+              "url": "https://indiestack.com/2014/12/",
+              "title": "Monthly Archives: December 2014 - Indie Stack"
+            },
+            {
+              "url": "https://applescriptlibrary.wordpress.com/wp-content/uploads/2013/11/applescript-release-notes.pdf",
+              "title": "AppleScript Release Notes"
+            },
+            {
+              "url": "https://flylib.com/books/en/4.105.1.199/1/",
+              "title": "Section 23.1. Targeting Scriptable Applications | AppleScript"
+            },
+            {
+              "url": "https://www.macscripter.net/t/load-script-and-non-visibility-of-properties-handlers/29440",
+              "title": "load script and (non-)visibility of properties/handlers"
+            },
+            {
+              "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_load_script.html",
+              "title": "Libraries using Load Script"
+            },
+            {
+              "url": "https://www.oreilly.com/library/view/applescript-the-definitive/0596102119/ch09s08.html",
+              "title": "9.8. The Run Handler - AppleScript: The Definitive Guide ..."
+            },
+            {
+              "url": "http://preserve.mactech.com/articles/mactech/Vol.21/21.02/Introtohandlers/index.html",
+              "title": "AppleScript Essentials - An Introduction to Handlers"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/2267426/can-i-put-shared-applescript-code-in-a-separate-file-and-load-it-in-various-scri",
+              "title": "Can I put shared applescript code in a separate file and ..."
+            },
+            {
+              "url": "https://discussions.apple.com/thread/8287814",
+              "title": "AppleScript delete caches for all users"
+            },
+            {
+              "url": "https://github.com/AppleScript-Library-Project/library-listing",
+              "title": "Listing of existing AppleScript libraries"
+            },
+            {
+              "url": "https://www.macscripter.net/t/tutorial-scripting-libraries/66650/print",
+              "title": "[Tutorial] Scripting Libraries - unScripted"
+            },
+            {
+              "url": "https://macosxautomation.com/mavericks/libraries/asoc.html",
+              "title": "AppleScript/Objective-C - macOS Automation"
+            },
+            {
+              "url": "https://redcanary.com/threat-detection-report/techniques/applescript/",
+              "title": "AppleScript - Red Canary Threat Detection Report"
+            },
+            {
+              "url": "https://attack.mitre.org/techniques/T1059/002/",
+              "title": "Command and Scripting Interpreter: AppleScript"
+            },
+            {
+              "url": "https://forum.keyboardmaestro.com/t/request-improve-performance-of-executing-applescript-compiled-files/17274",
+              "title": "Improve Performance of Executing AppleScript Compiled ..."
+            },
+            {
+              "url": "https://latenightsw.com/deploying-libraries/",
+              "title": "Deploying Libraries | Late Night Software"
+            },
+            {
+              "url": "https://www.macscripter.net/t/property-load-script-issue-calling-script-doesnt-recognize-changes/61214",
+              "title": "property load script: issue - calling script doesn't recognize changes - AppleScript | Mac OS X - MacScripter"
+            },
+            {
+              "url": "https://forum.latenightsw.com/t/embedding-script-libraries-that-call-other-libraries/2117",
+              "title": "Embedding script libraries that call other libraries - AppleScript - Late Night Software Ltd."
+            },
+            {
+              "url": "https://stackguides.com/questions/24319663/dynamically-load-applescripts-relative-to-current-scripts-location",
+              "title": "Dynamically load AppleScripts relative to current script's location"
+            },
+            {
+              "url": "https://www.latenightsw.com/archives/ScriptDebugger4.5.3Help.pdf",
+              "title": "Script Debugger: Script Debugger Help"
+            },
+            {
+              "url": "https://www.macscripter.net/t/determining-if-safari-is-frontmost/49276",
+              "title": "Determining if Safari is frontmost - AppleScript | Mac OS X"
+            },
+            {
+              "url": "https://forum.latenightsw.com/t/dictionary-design-for-when-you-want-class-and-property-name-to-be-the-same/3719",
+              "title": "Dictionary design for when you want class and property name ..."
+            },
+            {
+              "url": "https://www.reddit.com/r/applescript/",
+              "title": "r/applescript - The language of Mac automation"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/2296812/how-to-activate-mac-os-x-application-with-a-given-process-id",
+              "title": "How to activate Mac OS X application with a given process ..."
+            },
+            {
+              "url": "https://news.ycombinator.com/item?id=7862973",
+              "title": "JavaScript as an alternative to AppleScript on OS X Yosemite"
+            },
+            {
+              "url": "https://www.cs.utexas.edu/~wcook/Drafts/2006/ashopl.pdf",
+              "title": "AppleScript"
+            },
+            {
+              "url": "https://alwayswithyouwhatcannotbedone.wordpress.com/tag/applescript/",
+              "title": "Applescript - Always with you what cannot be done"
+            },
+            {
+              "url": "https://forum.keyboardmaestro.com/t/switching-to-other-applications-or-windows-in-the-current-desktop-space/36469",
+              "title": "Switching to other applications (or windows) in the current ..."
+            },
+            {
+              "url": "https://talk.tidbits.com/t/enforce-which-version-of-program-to-use/18177",
+              "title": "Enforce which version of program to use? - TidBITS Talk"
+            },
+            {
+              "url": "https://community.folivora.ai/t/communicating-with-a-webview-in-btt-mobile-from-the-mac/45306",
+              "title": "Communicating with a webview in BTT Mobile from the Mac"
+            },
+            {
+              "url": "https://furbo.org/2014/09/",
+              "title": "September • 2014 - Furbo.org"
+            },
+            {
+              "url": "https://gist.github.com/jerrykrinock/2a6ce62a1676aa1cc659",
+              "title": "My personal utility library of AppleScript handlers, and ..."
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/278570/automator-use-current-directory-location",
+              "title": "Automator use current directory location - Ask Different"
+            },
+            {
+              "url": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/ref-device-features-apple",
+              "title": "Apple device feature settings in Microsoft Intune"
+            },
+            {
+              "url": "https://chumaumenze.com/snippets/cfbd67ae78640d0c2315bdc55e890a12",
+              "title": "set file-associations on macOS: ~ .config duti defauts.duti"
+            },
+            {
+              "url": "https://flaticols.dev/posts/change-default-text-editor-duti/",
+              "title": "macOS: Change the default text editor with duti"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/14254632/how-to-use-command-to-compile-applescript-like-compile-from-applescript-edito",
+              "title": "How to use command to compile applescript like ..."
+            },
+            {
+              "url": "https://community.folivora.ai/t/pre-load-applescript-objc-bridging-files-in-applescript-script-runners/40017",
+              "title": "Pre-Load AppleScript-ObjC Bridging Files in ..."
+            },
+            {
+              "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html",
+              "title": "AppleScript Fundamentals"
+            },
+            {
+              "url": "https://www.oreilly.com/library/view/applescript-the-definitive/0596102119/ch08s03.html",
+              "title": "AppleScript: The Definitive Guide, 2nd Edition"
+            },
+            {
+              "url": "https://applehelpwriter.com/tag/applescript/",
+              "title": "AppleScript | - Applehelpwriter.com"
+            },
+            {
+              "url": "https://forum.latenightsw.com/t/applescript-execution-error-cant-find-script-in-non-default-location/128",
+              "title": "can't find script in non-default location - AppleScript"
+            },
+            {
+              "url": "https://www.macscripter.net/t/osa-library-path/69294",
+              "title": "Osa_library_path - AppleScript | Mac OS X"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/35389058/why-wont-osa-library-path-not-work-as-documented-for-jxa",
+              "title": "Why won't OSA_LIBRARY_PATH not work as documented ..."
+            },
+            {
+              "url": "https://talk.automators.fm/t/reconciling-applescript-with-modern-software-practices/6169",
+              "title": "Reconciling AppleScript with modern software practices?"
+            },
+            {
+              "url": "https://macosxautomation.com/mavericks/libraries/index.html",
+              "title": "AppleScript Libraries - macOS Automation"
+            },
+            {
+              "url": "https://www.paulfioravanti.com/blog/sharing-applescript-handlers/",
+              "title": "Sharing AppleScript Handlers | Floor and Varnish"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/7641806/how-would-you-put-an-applescript-script-under-version-control",
+              "title": "git - How would you put an AppleScript script under version ..."
+            },
+            {
+              "url": "https://macosxautomation.com/mavericks/usestatement/index.html",
+              "title": "The “use statement” - macOS Automation"
+            },
+            {
+              "url": "https://forum.latenightsw.com/t/library-failure-under-macos-12-5/3878",
+              "title": "Library failure under macOS 12.5 - Late Night Software Ltd."
+            },
+            {
+              "url": "https://www.macscripter.net/t/scripts-embedded-in-bundles-can-i-update-their-properties/69621",
+              "title": "Scripts embedded in bundles - can I update their properties?"
+            },
+            {
+              "url": "https://www.sentinelone.com/labs/fade-dead-adventures-in-reversing-malicious-run-only-applescripts/",
+              "title": "Adventures in Reversing Malicious Run-Only AppleScripts"
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/38761/how-to-run-a-downloaded-run-only-applescript",
+              "title": "How to run a downloaded run-only Applescript - Ask Different"
+            },
+            {
+              "url": "https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/SaveaScript.html",
+              "title": "Mac Automation Scripting Guide: Saving a Script"
+            },
+            {
+              "url": "https://discourse.devontechnologies.com/t/read-only-file-system-error-when-calling-shell-script-within-applescript/73923",
+              "title": "Read-only file system error when calling shell script within ..."
+            },
+            {
+              "url": "https://stackoverflow.com/questions/75370079/applescript-to-get-the-bundle-id-of-a-process-that-is-not-an-app",
+              "title": "AppleScript to get the bundle id of a process that is not ..."
+            },
+            {
+              "url": "https://www.macscripter.net/t/tell-variable-application/56365",
+              "title": "tell variable application - AppleScript | Mac OS X"
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/340057/applescript-tell-application-of-specific-instance",
+              "title": "Applescript Tell Application of Specific Instance"
+            },
+            {
+              "url": "https://macosxautomation.com/applescript/firsttutorial/14.html",
+              "title": "The Tell Block - AppleScript: Beginner's Tutorial"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/52898008/applescript-tell-application-of-specific-instance",
+              "title": "AppleScript: Tell Application of Specific Instance"
+            },
+            {
+              "url": "https://forum.keyboardmaestro.com/t/applescript-to-tell-active-application/6336",
+              "title": "Applescript to tell active application"
+            },
+            {
+              "url": "https://www.macscripter.net/t/nsbundle-bundlewithidentifier/37574",
+              "title": "NSBundle bundleWithIdentifier"
+            },
+            {
+              "url": "https://www.macosxautomation.com/applescript/features/appobject.html",
+              "title": "AppleScript: Enhanced Application Object Model"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/57776704/calling-an-application-by-the-bundle-signature-using-jxa-macos",
+              "title": "Calling an application by the bundle signature using JXA ..."
+            },
+            {
+              "url": "https://redcanary.com/blog/threat-detection/mac-application-bundles/",
+              "title": "How to thwart application bundle manipulation on macOS"
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/431030/what-is-the-correct-certificate-to-setup-for-applescript-apps",
+              "title": "What is the correct certificate to setup for AppleScript apps?"
+            },
+            {
+              "url": "https://forum.latenightsw.com/t/determine-the-application-or-process-that-sent-a-scripting-event/345",
+              "title": "Determine the application or process that sent a scripting ..."
+            },
+            {
+              "url": "https://robservatory.com/easily-see-any-apps-bundle-identifier/",
+              "title": "Easily see any app's bundle identifier"
+            },
+            {
+              "url": "https://www.reddit.com/r/applescript/comments/s8mjeu/setting_applescript_compiled_applet_bundle_info/",
+              "title": "Setting Applescript compiled applet bundle info from ..."
+            },
+            {
+              "url": "https://www.macscripter.net/t/methods-for-remembering-in-an-applescript/39382",
+              "title": "Methods for \"remembering\" in an AppleScript"
+            },
+            {
+              "url": "https://forum.latenightsw.com/t/properties-not-being-saved/4229",
+              "title": "Properties not being saved - AppleScript"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/28848170/accessing-property-values-in-applescript",
+              "title": "Accessing property values in applescript"
+            },
+            {
+              "url": "https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_script_objects.html",
+              "title": "Script Objects"
+            },
+            {
+              "url": "http://preserve.mactech.com/articles/mactech/Vol.22/22.03/StoringandAccessingData/index.html",
+              "title": "Storing and Accessing Data with AppleScript - MacTech"
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/58007/how-do-i-pass-variables-values-between-subsequent-applescript-runs-persistent",
+              "title": "plist - How do i pass variables' values between subsequent ..."
+            },
+            {
+              "url": "https://s3.amazonaws.com/latenightsw.com/SD5HelpBook.pdf",
+              "title": "Script Debugger Help"
+            },
+            {
+              "url": "https://culturedcode.com/things/support/articles/4562654/",
+              "title": "Things AppleScript Commands - Things Support"
+            },
+            {
+              "url": "https://superuser.com/questions/346369/getting-the-bundle-identifier-of-an-os-x-application-in-a-shell-script",
+              "title": "Getting the bundle identifier of an OS X application in a ..."
+            },
+            {
+              "url": "https://scriptingosx.com/2022/04/launching-scripts-3-from-applescripts/",
+              "title": "Launching Scripts #3: Shell scripts from AppleScript"
+            },
+            {
+              "url": "https://loobins.io/binaries/osascript/",
+              "title": "osascript"
+            },
+            {
+              "url": "https://forum.latenightsw.com/t/osascript-read-source/4112",
+              "title": "OSAScript read source - AppleScript - Late Night Software Ltd."
+            }
+          ],
+          "generatedAt": "2026-09-11T19:34:16.054Z",
+          "completeness": "complete"
+        },
+        "next": null,
+        "error": null,
+        "skillVersion": "8d3db9c52227"
+      },
+      "runnerError": null,
+      "dependsOn": [],
+      "phase": 0,
+      "role": "AppleScript identity and code-dependency scout"
+    },
+    "shell-and-privileges-scout": {
+      "status": "succeeded",
+      "idempotencyKey": "[REDACTED_OPERATION_ID]",
+      "requestId": "[REDACTED_OPERATION_ID]",
+      "startedAt": "2026-09-11T19:33:52.063363+00:00",
+      "finishedAt": "2026-09-11T19:34:22.514142+00:00",
+      "response": {
+        "requestId": "[REDACTED_OPERATION_ID]",
+        "route": "/v1/research/deep",
+        "capability": "research.deep",
+        "status": "succeeded",
+        "replayed": false,
+        "costFinal": true,
+        "output": {
+          "answer": "- **Runtime command construction:** `do shell script` receives one shell-code string, not a structured argument array. AppleScript can concatenate values at runtime, e.g. `\"ping -c1 \" & hostname`; therefore every concatenated value becomes part of the shell program unless deliberately quoted. Each invocation starts a new shell process, so `cd`, variables, and other state do not persist between calls. Combine dependent commands in one invocation with `;` or a newline. [Apple Mac Automation Scripting Guide](https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/CallCommandLineUtilities.html); [TN2065](https://leopard-adc.pepas.com/technotes/tn2002/tn2065.html)\n\n- **Argument quoting:** Shell spaces delimit arguments; `$`, parentheses, `*`, semicolons, pipes, redirections, and similar syntax have additional meaning. Apple’s recommended boundary for AppleScript data is `quoted form of`, appended as a separate argument fragment, for example: `do shell script \"/bin/tool \" & quoted form of value`. This prevents the value from being reinterpreted as shell syntax, including embedded spaces and quotes. Quoting the whole command indiscriminately is not equivalent: operators intended as shell syntax must remain outside the data quote. [Apple Mac Automation Scripting Guide](https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/CallCommandLineUtilities.html); [TN2065](https://leopard-adc.pepas.com/technotes/tn2002/tn2065.html)\n\n- **Shell and environment:** `do shell script` uses `/bin/sh`, not the user’s Terminal default shell. It also does not read the interactive-shell startup files, so aliases, functions, custom `PATH`, language settings, virtual environments, and user-installed tools may be absent. Use explicit interpreter paths and executable paths where practical; explicitly set required environment values. Apple’s example default `PATH` is `/usr/bin:/bin:/usr/sbin:/sbin`. This is a runtime-context difference, not evidence that the command lacks filesystem permission. [TN2065](https://leopard-adc.pepas.com/technotes/tn2002/tn2065.html); [Launching Scripts #3](https://scriptingosx.com/2022/04/launching-scripts-3-from-applescripts/)\n\n- **Failures and prompts:** A nonzero command status becomes an AppleScript error; it is not silently successful. Separately, a command may prompt on its own for input, network authentication, SSH host-key confirmation, MFA, a keychain decision, or a remote system’s policy. A custom broker’s “no-prompt” setting can suppress only that broker’s approval step; it cannot answer arbitrary child-process or remote prompts. This is an execution-model inference, not a claim that Apple’s archived notes enumerate every current prompt type. [Apple Mac Automation Scripting Guide](https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/CallCommandLineUtilities.html)\n\n- **Administrator authorization versus `sudo`:** AppleScript’s `with administrator privileges` invokes AppleScript’s administrator-authentication path for that `do shell script` invocation. The documented authentication grace period is five minutes and does not extend to other scripts or the rest of the system. It is therefore distinct from `sudo` and its sudoers rules. The reported passwordless-`sudo` state is unverified evidence: even if true, it affects only commands accepted by local sudo policy, not AppleScript authorization, macOS privacy controls, SSH authentication, or remote authorization. [TN2065](https://leopard-adc.pepas.com/technotes/tn2002/tn2065.html)\n\n- **Outside the broker:** macOS TCC/privacy decisions, managed-device restrictions, filesystem ownership/ACLs, SIP-protected operations, and remote-server policy remain OS or service boundaries. The supplied Apple documentation is archived (2014–2016-era material plus an archived Technote); exact behavior can vary by macOS release. The broker setting is neither a macOS permission grant nor a waiver of those boundaries. [Apple Mac Automation Scripting Guide](https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/CallCommandLineUtilities.html)\n\nTERMINAL_STATUS: FINISHED",
+          "sources": [
+            {
+              "url": "https://leopard-adc.pepas.com/technotes/tn2002/tn2065.html",
+              "title": "Technical Note TN2065: do shell script in AppleScript"
+            },
+            {
+              "url": "https://unix.stackexchange.com/questions/753664/creating-a-command-with-single-quotes-using-a-command-line-variable-and-then-e",
+              "title": "bash - Creating a command (with single quotes) using a ..."
+            },
+            {
+              "url": "https://discussions.apple.com/thread/2101955",
+              "title": "do script vs. do shell script with respect to errors"
+            },
+            {
+              "url": "https://developer.apple.com/libr",
+              "title": "Converting terminal command to AS command - AppleScript"
+            },
+            {
+              "url": "https://forum.latenightsw.com/t/do-shell-script-how-to-use-applescript-variables-stringing-commands-together/3422",
+              "title": "Do shell script - How to use AppleScript variables & stringing ..."
+            },
+            {
+              "url": "https://stackoverflow.com/questions/71132249/how-to-calculate-execution-time-and-get-command-exit-code",
+              "title": "How to Calculate Execution Time and Get Command Exit ..."
+            },
+            {
+              "url": "https://www.reddit.com/r/applescript/comments/lpzsv8/do_shell_script_and_pbcopy/",
+              "title": "do shell script and pbcopy : r/applescript"
+            },
+            {
+              "url": "https://askubuntu.com/questions/754098/how-to-calculate-script-run-time",
+              "title": "how to calculate script run time - command line"
+            },
+            {
+              "url": "https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/educational/shell_and_script.html",
+              "title": "3.4. Shell script and command line tips - AFNI - NIH"
+            },
+            {
+              "url": "https://www.macscripter.net/t/do-shell-script/31656",
+              "title": "do shell script - AppleScript | Mac OS X"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/8138167/how-can-i-escape-shell-arguments-in-applescript",
+              "title": "How can I escape shell arguments in AppleScript?"
+            },
+            {
+              "url": "https://discussions.apple.com/thread/251308343",
+              "title": "AppleScript \"do shell script\" fails when using bash argument"
+            },
+            {
+              "url": "https://scriptingosx.com/2022/04/launching-scripts-3-from-applescripts/",
+              "title": "Launching Scripts #3: Shell scripts from AppleScript"
+            },
+            {
+              "url": "https://forum.latenightsw.com/t/applescriptobjc-and-do-shell-script/2069",
+              "title": "AppleScriptObjC and 'do shell script'"
+            },
+            {
+              "url": "https://nhimg.org/articles/applescript-injection-in-openinterminal-shows-why-shell-escaping-fails/",
+              "title": "AppleScript injection in OpenInTerminal shows why shell ..."
+            },
+            {
+              "url": "https://github.com/elizaOS/eliza/issues/6766",
+              "title": "Command injection via unsanitized windowId in window ..."
+            },
+            {
+              "url": "https://www.facebook.com/groups/179313285447304/posts/1924571777588104/",
+              "title": "Running AppleScript from shell with osascript"
+            },
+            {
+              "url": "https://discussions.apple.com/thread/256172196",
+              "title": "Run bash (.sh) via launchd using a plist …"
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/461581/can-i-use-the-output-of-a-shell-script-to-set-env-vars-from-launchd",
+              "title": "Can I use the output of a shell script to set env vars from ..."
+            },
+            {
+              "url": "https://lucaspin.medium.com/where-is-my-path-launchd-fc3fc5449864",
+              "title": "Where is my PATH, launchD? - Lucas Pinheiro - Medium"
+            },
+            {
+              "url": "https://talk.automators.fm/t/script-runs-in-terminal-fails-in-cron/12076",
+              "title": "Script runs in terminal, fails in cron - Automators Talk"
+            },
+            {
+              "url": "https://www.wisellama.rocks/posts/2021-08-08-shell-scripting/",
+              "title": "Shell Scripting - Wisellama.rocks"
+            },
+            {
+              "url": "https://github.com/ghostty-org/ghostty/discussions/3598",
+              "title": "feature request: prefer SHELL from launchctl getenv ..."
+            },
+            {
+              "url": "https://macstadium.com/blog/how-to-use-the-terminal-app-for-shell-scripting-on-macos",
+              "title": "How to Use the Terminal App for Shell Scripting on macOS"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/25385934/setting-environment-variables-via-launchd-conf-no-longer-works-in-os-x-yosemite",
+              "title": "Setting environment variables via launchd.conf no longer ..."
+            },
+            {
+              "url": "https://www.youtube.com/watch?v=z_UJi82e8j4",
+              "title": "Basic Terminal/Shell Commands for Mac OSX, Linux ..."
+            },
+            {
+              "url": "https://www.macscripter.net/t/sudo-confusion/70573",
+              "title": "Sudo confusion - AppleScript | Mac OS X"
+            },
+            {
+              "url": "https://discussions.apple.com/thread/5432720",
+              "title": "Applescript for running sudo commands in terminal"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/22161394/how-do-i-run-a-shell-script-with-administrator-privileges-through-applescript-wi",
+              "title": "How do I run a shell script with administrator privileges ..."
+            },
+            {
+              "url": "https://superuser.com/questions/1824641/running-app-as-root-using-apple-script",
+              "title": "Running App as root using Apple Script?"
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/435028/equivalent-of-applescript-with-administrator-privileges-in-shell",
+              "title": "Equivalent of AppleScript \"with administrator privileges\" in ..."
+            },
+            {
+              "url": "https://www.reddit.com/r/applescript/comments/oiqko1/run_applescript_without_admin_rights/",
+              "title": "run AppleScript without admin rights"
+            },
+            {
+              "url": "https://docs.denvrdata.com/docs/additional-information/faqs/how-does-sudo-and-passwordless-sudo-work-on-my-vm",
+              "title": "How does sudo and passwordless sudo work on my VM?"
+            },
+            {
+              "url": "https://macosx.com/threads/best-practice-standard-vs-administrator.282072/",
+              "title": "best practice: standard vs administrator - Mac Support"
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/239764/how-can-i-run-a-shell-script-that-prompts-for-user-input-from-within-applescript",
+              "title": "How can I run a shell script that prompts for user input from ..."
+            },
+            {
+              "url": "https://www.macscripter.net/t/how-to-error-handle-do-shell-script/73375",
+              "title": "How to Error Handle \"do shell script\"?"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/34618038/applescript-access-not-allowed-when-trying-to-run-shell-script",
+              "title": "AppleScript access not allowed when trying to run shell script"
+            },
+            {
+              "url": "https://community.jamf.com/general-discussions-2/apple-script-to-run-as-bash-32994",
+              "title": "Apple Script to run as bash"
+            },
+            {
+              "url": "https://talk.automators.fm/t/applescript-do-not-disturb-on-mac/7646",
+              "title": "AppleScript Do Not Disturb on Mac? - Automators Talk"
+            },
+            {
+              "url": "https://forum.keyboardmaestro.com/t/help-scripting-with-applescript-shell-script/10623",
+              "title": "Help - scripting with applescript & shell script"
+            },
+            {
+              "url": "https://www.macscripter.net/t/shell-script-reference/36012",
+              "title": "Shell script reference - AppleScript | Mac OS X"
+            },
+            {
+              "url": "https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/CallCommandLineUtilities.html",
+              "title": "Mac Automation Scripting Guide: Calling Command-Line ..."
+            },
+            {
+              "url": "https://developer.apple.com/forums/thread/751144",
+              "title": "AppleScript, Do Shell. How do I write the \"test\" command ..."
+            },
+            {
+              "url": "https://developer.apple.com/library/archive/documentation/OpenSource/Conceptual/ShellScripting/Introduction/Introduction.html",
+              "title": "Shell Scripting Primer"
+            },
+            {
+              "url": "https://developer.apple.com/forums/thread/127709",
+              "title": "Do Shell Scripts Need to be Signed?"
+            },
+            {
+              "url": "https://superuser.com/questions/821089/why-variables-in-shell-are-not-inherited-by-sub-shell-now-that-the-sub-shell-is",
+              "title": "Why variables in shell are not inherited by sub-shell now ..."
+            },
+            {
+              "url": "https://unix.stackexchange.com/questions/130985/if-processes-inherit-the-parents-environment-why-do-we-need-export",
+              "title": "shell - If processes inherit the parent's environment, why do ..."
+            },
+            {
+              "url": "https://www.ibm.com/docs/en/zos/3.2.0?topic=variables-setting-environment",
+              "title": "Setting environment variables"
+            },
+            {
+              "url": "https://www.reddit.com/r/bash/comments/jh2z19/script_to_set_environment_variables_please_someone/",
+              "title": "Script to set environment variables. Please someone : r/bash"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/51272394/why-is-this-bash-script-not-inheriting-all-environment-variables",
+              "title": "Why is this Bash script not inheriting all environment ..."
+            },
+            {
+              "url": "https://news.ycombinator.com/item?id=42113473",
+              "title": "Environment variables are per-process, but inherited by ..."
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/linux-unix/environment-variables-in-linux-unix/",
+              "title": "Environment Variables in Linux/Unix"
+            },
+            {
+              "url": "https://forums.opensuse.org/t/creating-a-new-custom-environment-shell-inheriting-most-of-bash/136874",
+              "title": "Creating a new custom environment shell, inheriting most ..."
+            },
+            {
+              "url": "https://serverfault.com/questions/176935/running-shell-script-with-no-environmental-variables",
+              "title": "Running shell script with no environmental variables"
+            },
+            {
+              "url": "https://captainrandom.co.uk/writing/macos-launchd-tcc/",
+              "title": "macOS won't let your cron read your work: three days inside TCC"
+            },
+            {
+              "url": "https://docs.gensparx.com/platforms/macos",
+              "title": null
+            },
+            {
+              "url": "https://github.com/ai-ecoverse/slicc/blob/d7054977/docs/approvals.md",
+              "title": "docs/approvals.md"
+            },
+            {
+              "url": "https://zacharmstead.com/posts/2025/applescript-cli-macos-complete-guide",
+              "title": "Making AppleScript Work in macOS CLI Tools: The Undocumented Parts | Zachary Armstead"
+            },
+            {
+              "url": "https://github.com/macOS26/Agent/blob/main/docs/SECURITY.md",
+              "title": "docs/SECURITY.md"
+            },
+            {
+              "url": "https://scriptingosx.com/2020/09/avoiding-applescript-security-and-privacy-requests/",
+              "title": "Avoiding AppleScript Security and Privacy Requests - Scripting OS X"
+            },
+            {
+              "url": "https://oj-sec.com/blog/20260721/",
+              "title": null
+            },
+            {
+              "url": "https://exchangetuts.com/allow-applescript-script-to-run-without-asking-for-permission-1640946063724794",
+              "title": "Allow AppleScript script to run without asking for permission"
+            },
+            {
+              "url": "https://www.hawkdive.com/ai-agent-permission-fatigue-mac-fix/",
+              "title": "AI Agent Permission Fatigue on Mac: How to Fix Prompt Overload - Hawkdive.com"
+            },
+            {
+              "url": "https://bash.itsecurity.network/part2_advanced_security/12_interfacing_macos_apis_tools/",
+              "title": "Chapter 12: Interfacing with macOS APIs and Tools - Secure Bash for macOS"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/18459609/applescript-do-shell-script-ignores-path-variable",
+              "title": "AppleScript \"do shell script\" ignores PATH Variable"
+            },
+            {
+              "url": "https://discussions.apple.com/thread/5951674",
+              "title": "How to let AppleScript use the same environment as Bash ..."
+            },
+            {
+              "url": "https://www.phusionpassenger.com/docs/advanced_guides/in_depth/ruby/environment_variables.html",
+              "title": "About environment variables"
+            },
+            {
+              "url": "https://www.macscripter.net/t/run-python-terminal-app-vs-do-shell-script-inconsistency/76802",
+              "title": "Run python - Terminal app vs do shell script - inconsistency"
+            },
+            {
+              "url": "https://www.boot.dev/blog/devops/linux-path-variable",
+              "title": "The PATH Environment Variable in Linux, Explained"
+            },
+            {
+              "url": "https://learn.hpc.qmul.ac.uk/linux_101/21_the_linux_environment/",
+              "title": "Lesson 21 - The shell environment"
+            },
+            {
+              "url": "https://unix.stackexchange.com/questions/154281/path-environment-variable-does-not-seem-to-be-recognized",
+              "title": "shell - $PATH environment variable does not seem to be ..."
+            },
+            {
+              "url": "https://www.reddit.com/r/archlinux/comments/9y1ngy/how_bad_an_idea_is_it_to_use_nopasswd_in/",
+              "title": "How bad an idea is it to use NOPASSWD in /etc/sudoers?"
+            },
+            {
+              "url": "https://askubuntu.com/questions/334318/sudoers-file-enable-nopasswd-for-user-all-commands",
+              "title": "Sudoers file, enable NOPASSWD for user, all commands"
+            },
+            {
+              "url": "https://www.hackingarticles.in/linux-privilege-escalation-using-exploiting-sudo-rights/",
+              "title": "Linux Privilege Escalation: Abusing SUDO"
+            },
+            {
+              "url": "https://serverfault.com/questions/960940/is-sudoers-entry-with-nopasswd-a-security-risk-if-so-how-can-i-address-this",
+              "title": "Is sudoers entry With NOPASSWD a Security Risk? If So, ..."
+            },
+            {
+              "url": "https://medium.com/schkn/linux-privilege-escalation-using-text-editors-and-files-part-1-a8373396708d",
+              "title": "Linux Privilege Escalation exploiting Sudo Rights — Part I"
+            },
+            {
+              "url": "https://security.stackexchange.com/questions/45712/how-secure-is-nopasswd-in-passwordless-sudo-mode",
+              "title": "How secure is NOPASSWD in passwordless sudo mode?"
+            },
+            {
+              "url": "https://ostechnix.com/run-particular-commands-without-sudo-password-linux/",
+              "title": "How To Run Sudo Commands Without Password In Linux"
+            },
+            {
+              "url": "https://forum.endeavouros.com/t/sudo-with-nopasswd-how-bad-is-it/69273",
+              "title": "Sudo with NOPASSWD: How bad is it? - Applications"
+            },
+            {
+              "url": "https://oneuptime.com/blog/post/2026-03-02-how-to-configure-sudo-access-without-a-password-on-ubuntu/view",
+              "title": "How to Configure sudo Access Without a Password on ..."
+            },
+            {
+              "url": "https://redcanary.com/threat-detection-report/techniques/applescript/",
+              "title": "AppleScript - Red Canary Threat Detection Report"
+            },
+            {
+              "url": "https://attacker.<b>example</b>/",
+              "title": "Command injection via unsanitized windowId in window ..."
+            },
+            {
+              "url": "https://forum.keyboardmaestro.com/t/how-do-i-use-an-applescript-variable-in-a-do-shell-script-command-within-the-applescript-code/14315",
+              "title": "How Do I Use an AppleScript Variable in a “Do Shell Script ..."
+            },
+            {
+              "url": "https://unix.stackexchange.com/questions/50665/what-are-the-differences-between-interactive-non-interactive-login-and-non-lo",
+              "title": "bash - What are the differences between interactive, non- ..."
+            },
+            {
+              "url": "https://www.reddit.com/r/bash/comments/11osjrn/what_exactly_is_the_difference_between_an/",
+              "title": "What exactly is the difference between an interactive and ..."
+            },
+            {
+              "url": "https://learning.lpi.org/en/learning-materials/102-500/105/105.1/105.1_01/",
+              "title": "105.1 Lesson 1 - Linux Professional Institute – Learning"
+            },
+            {
+              "url": "https://superuser.com/questions/657848/why-do-we-have-login-non-login-interactive-and-non-interactive-bash-shells",
+              "title": "Why do we have login, non-login, interactive, and non- ..."
+            },
+            {
+              "url": "https://www.mislavjuric.com/linux-tutorial-series-84-interactive-vs-non-interactive-and-login-vs-non-login-shells/",
+              "title": "84 – Interactive vs non-interactive and login vs non-login shells"
+            },
+            {
+              "url": "https://medium.com/@linuxrootroom/what-are-interactive-and-non-interactive-shells-in-linux-5f25ce19e537",
+              "title": "What are interactive and non-interactive shells in Linux"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/18186929/what-are-the-differences-between-a-login-shell-and-interactive-shell",
+              "title": "bash - What are the differences between a login shell and ..."
+            },
+            {
+              "url": "https://askubuntu.com/questions/155865/what-are-login-and-non-login-shells",
+              "title": "What are login and non-login shells?"
+            },
+            {
+              "url": "https://hacktricks.wiki/en/macos-hardening/macos-security-and-privilege-escalation/macos-security-protections/macos-tcc/index.html",
+              "title": "macOS TCC"
+            },
+            {
+              "url": "https://cyber-security-in-plain-english.com/post/experts/macos/tcc-manipulation-in-the-wild/",
+              "title": "macOS TCC Manipulation in the Wild: AppleScript Droppers ..."
+            },
+            {
+              "url": "https://www.qt.io/blog/the-curious-case-of-the-responsible-process",
+              "title": "The Curious Case of the Responsible Process"
+            },
+            {
+              "url": "https://karol-mazurek.medium.com/snake-apple-ix-tcc-ae822e3e2718",
+              "title": "Snake&Apple IX — TCC - Karol Mazurek - Medium"
+            },
+            {
+              "url": "https://eclecticlight.co/2018/10/02/how-privacy-protection-is-enforced-through-the-attribution-chain/",
+              "title": "How privacy protection is enforced through the Attribution ..."
+            },
+            {
+              "url": "https://mjtsai.com/blog/2025/07/07/the-curious-case-of-the-responsible-process/",
+              "title": "The Curious Case of the Responsible Process"
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/486446/how-to-grant-permissions-to-an-application-from-command-line",
+              "title": "How to grant permissions to an application from command ..."
+            },
+            {
+              "url": "https://www.sentinelone.com/labs/bypassing-macos-tcc-user-privacy-protections-by-accident-and-design/",
+              "title": "Bypassing macOS TCC User Privacy Protections By ..."
+            },
+            {
+              "url": "https://github.com/pingdotgg/t3code/issues/728",
+              "title": "apps launched from integrated terminal can't request TCC ..."
+            },
+            {
+              "url": "https://afine.com/threat-of-tcc-bypasses-on-macos",
+              "title": "Threat of TCC Bypasses on macOS - AFINE"
+            },
+            {
+              "url": "https://blog.xpnsec.com/bypassing-macos-privacy-controls/",
+              "title": "Bypassing MacOS Privacy Controls - XPN Infosec Blog"
+            },
+            {
+              "url": "https://www.hexnode.com/mobile-device-management/help/automate-macos-tcc-pppc-permissions-deployment/",
+              "title": "macOS TCC/PPPC Permissions | Automating Privacy ..."
+            },
+            {
+              "url": "https://learn.jamf.com/r/en-US/technical-articles/Resetting_Transparency_Consent_and_Control_Prompts_on_macOS",
+              "title": "Resetting Transparency Consent and Control Prompts on ..."
+            },
+            {
+              "url": "https://stackoverflow.com/questions/68907009/running-a-service-with-sudo-administrator-privileges",
+              "title": "Running a Service with sudo administrator privileges"
+            },
+            {
+              "url": "https://grahampugh.github.io/2017/01/07/application-to-run-shell-commands-with-admin-rights.html",
+              "title": "Writing an application to run shell commands with admin rights"
+            },
+            {
+              "url": "https://documentation.suse.com/smart/systems-management/html/sudo-run-commands-as-superuser/index.html",
+              "title": "Running Commands as Superuser with sudo"
+            },
+            {
+              "url": "https://www.byteworks.com/resources/blog/sudo/",
+              "title": "Different flavors of Elevated Privileges"
+            },
+            {
+              "url": "https://discussions.apple.com/thread/890886",
+              "title": "sudo in a bash script"
+            },
+            {
+              "url": "https://superuser.com/questions/335057/how-to-execute-a-command-with-admin-privileges-and-access-to-files-of-the-logged",
+              "title": "How to execute a command with admin privileges and ..."
+            },
+            {
+              "url": "https://www.admin-magazine.com/layout/set/print/Articles/Assigning-Privileges-with-sudo-and-PolicyKit",
+              "title": "Assigning Privileges with sudo and PolicyKit"
+            },
+            {
+              "url": "https://www.macscripter.net/t/make-a-string-composed-of-multiple-variables-into-a-variable/68568",
+              "title": "make a string composed of multiple variables into a variable"
+            },
+            {
+              "url": "https://discussions.apple.com/thread/699758",
+              "title": "Passing AppleScript string variable to shell script"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/76022442/how-to-call-a-variable-between-the-strings-in-applescript",
+              "title": "How to call a variable between the strings in applescript"
+            },
+            {
+              "url": "https://forum.keyboardmaestro.com/t/how-to-pass-a-variable-to-do-shell-script-in-execute-applescript-action/15675",
+              "title": "How to pass a variable to \"do shell script\" in Execute ..."
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/171059/applescript-and-shell-how-do-i-insert-a-variable",
+              "title": "Applescript and Shell: how do I insert a variable?"
+            },
+            {
+              "url": "https://www.oreilly.com/library/view/applescript-the-definitive/0596102119/ch15s06.html",
+              "title": "AppleScript: The Definitive Guide, 2nd Edition"
+            },
+            {
+              "url": "https://www.reddit.com/r/linuxquestions/comments/1katgin/why_is_using_sudo_considered_more_secure_than/",
+              "title": "Why is using sudo considered more secure than logging ..."
+            },
+            {
+              "url": "https://forum.qubes-os.org/t/passwordless-sudo-selinux-understanding-security-logic/22446?page=5",
+              "title": "Passwordless sudo, SELinux - understanding security logic"
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/257813/enable-sudo-without-a-password-on-macos",
+              "title": "Enable sudo without a password on MacOS - Ask Different"
+            },
+            {
+              "url": "https://www.facebook.com/raspberrypi/posts/weve-disabled-passwordless-sudo-in-raspberry-pi-os-preventing-malicious-actors-f/1246907124270721/",
+              "title": "We've disabled passwordless sudo in Raspberry Pi OS ..."
+            },
+            {
+              "url": "https://addigy.com/blog/macos-26-1-critical-security-update/",
+              "title": "macOS 26.1 Fixes Critical Sudo Vulnerabilities"
+            },
+            {
+              "url": "https://linuxsecurity.com/news/server-security/os-x-sudo-vs-root-the-real-story",
+              "title": "macOS User Privileges: Sudo Versus Root Access Risks ..."
+            },
+            {
+              "url": "https://jozefcipa.com/blog/how-to-use-sudo-without-a-password-in-your-programs/",
+              "title": "How to use sudo without a password in your programs"
+            },
+            {
+              "url": "https://forums.kicksecure.com/t/why-passwordless-sudo-by-default/978",
+              "title": "Why passwordless sudo by default? - Support"
+            },
+            {
+              "url": "https://github.com/apple/container/issues/1713",
+              "title": "[Bug]: container machine: passwordless sudo breaks when ..."
+            },
+            {
+              "url": "https://superuser.com/questions/1784025/cron-cant-find-executable-which-works-in-terminal",
+              "title": "path - Cron can't find executable which works in terminal?"
+            },
+            {
+              "url": "https://www.facebook.com/groups/companion/posts/4183818581836460/",
+              "title": "How do I use the run shell path action"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/11932014/how-to-run-a-shell-script-by-cron-job",
+              "title": "How to run a Shell Script by Cron Job - linux"
+            },
+            {
+              "url": "https://www.reddit.com/r/osx/comments/cx29im/running_a_script_at_a_set_time_with_launchd/",
+              "title": "Running a script at a set time with launchd : r/osx"
+            },
+            {
+              "url": "https://veerpalbrar.github.io/blog/How-to-Run-A-Program-or-Script-Hourly-on-MacOS/",
+              "title": "How to Run a Program or Script Hourly on macOS"
+            }
+          ],
+          "generatedAt": "2026-09-11T19:34:21.961Z",
+          "completeness": "complete"
+        },
+        "next": null,
+        "error": null,
+        "skillVersion": "8d3db9c52227"
+      },
+      "runnerError": null,
+      "dependsOn": [],
+      "phase": 0,
+      "role": "Shell execution and privilege-boundary scout"
+    },
+    "macos-permissions-scout": {
+      "status": "succeeded",
+      "idempotencyKey": "[REDACTED_OPERATION_ID]",
+      "requestId": "[REDACTED_OPERATION_ID]",
+      "startedAt": "2026-09-11T19:33:52.063364+00:00",
+      "finishedAt": "2026-09-11T19:34:22.516660+00:00",
+      "response": {
+        "requestId": "[REDACTED_OPERATION_ID]",
+        "route": "/v1/research/deep",
+        "capability": "research.deep",
+        "status": "succeeded",
+        "replayed": false,
+        "costFinal": true,
+        "output": {
+          "answer": "- **Broker “universal no-prompt” is not a macOS grant.** It suppresses the tool’s own approval dialog for shell/SSH/AppleScript requests; it does not approve TCC-protected operations, expand task boundaries, or pre-authorize new applications.\n\n- **Automation / Apple Events = app-to-app control.** macOS records whether the broker/source app may control a particular target app. Apple’s current setup is **System Settings → Privacy & Security → Automation**, then enable the relevant target under the requesting app. This is distinct from Accessibility. [Apple Support](https://support.apple.com/guide/mac-help/allow-apps-to-control-other-apps-on-mac-mchl07817563/mac)  \n  **Practical consequence:** a broker approved to control Finder is not thereby approved to control Safari, Mail, System Settings, or a newly installed/replaced target. Each source-target relationship may still produce an Automation decision or a silent denial. “No future prompts” is therefore not a defensible universal claim.\n\n- **Accessibility = UI scripting/control, not ordinary app scripting.** Accessibility authorizes an app to access and control the Mac’s user interface; the current setup is **System Settings → Privacy & Security → Accessibility**, with the controlling app enabled. [Apple Support](https://support.apple.com/en-in/guide/mac-help/mh43185/mac)  \n  The supplied Apple guide states that UI scripting requires Accessibility and that permission is enabled manually on an app-by-app basis, including script apps. [Archived Apple guide](https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/AutomatetheUserInterface.html)\n\n- **Do not conflate the two paths.** AppleScript can send semantic Apple Events directly to an application (Automation). UI scripting commonly tells **System Events** to inspect/control another application’s Accessibility hierarchy; that can require Automation consent for the broker to communicate with System Events plus Accessibility consent for the actual UI-control path. The latter distinction is an inference from Apple’s separate Automation and Accessibility controls; exact behavior varies with process and implementation.\n\n- **Target/window/focus limits remain even after consent.** The archived guide models UI scripting as `System Events` → `process \"Safari\"` and requires locating the target’s element hierarchy—e.g. `button X of window Y of process Z`. It also sets the process `frontmost` before menu interaction. [Archived Apple guide](https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/AutomatetheUserInterface.html)  \n  Thus the target process must be running and expose a usable Accessibility hierarchy; window numbers, titles, modal sheets, minimized/hidden windows, app-specific UI, and focus changes can make an action fail or hit the wrong element. Bringing an app frontmost can steal user focus and does not guarantee a stable window.\n\n- **Legitimate setup and limits:** enable only the broker executable/app actually issuing the request, then approve only required Automation targets and Accessibility access. Separate capabilities—such as screen capture, protected files, microphone, or camera—remain separate prompts when requested; universal broker mode does not cover them. Grants can be revoked, invalidated by app identity/update changes, or absent for a new target, user/session, or process. The Apple UI guide is archived (2016-era terminology); use the current Support pages for settings wording, and treat process/focus behavior as documented concept plus practical limitation, not a current guarantee.\n\nTERMINAL_STATUS: FINISHED",
+          "sources": [
+            {
+              "url": "https://apple.stackexchange.com/questions/421453/application-never-asks-for-automation-permissions",
+              "title": "Application never asks for automation permissions"
+            },
+            {
+              "url": "https://docs.automationanywhere.com/r/automation-360/application-permissions-mac",
+              "title": "Application permissions on macOS"
+            },
+            {
+              "url": "https://tidbits.com/2024/08/12/macos-15-sequoias-excessive-permissions-prompts-will-hurt-security/",
+              "title": "macOS 15 Sequoia's Excessive Permissions Prompts Will ..."
+            },
+            {
+              "url": "https://help.insightful.io/en/articles/12518583-macos-permissions-required-for-insightful",
+              "title": "MacOS Permissions Required for Insightful"
+            },
+            {
+              "url": "https://chrispaynter.medium.com/what-to-do-when-your-macos-daemon-gets-blocked-by-tcc-dialogues-d3a1b991151f",
+              "title": "macOS processes — What to do when your daemon gets ..."
+            },
+            {
+              "url": "https://www.reddit.com/r/AirMessage/comments/kunixc/no_permissions_prompt_and_no_way_to_add/",
+              "title": "No permissions prompt and no way to add automation ..."
+            },
+            {
+              "url": "https://forum.cursor.com/t/macos-system-permissions-for-automation/33139",
+              "title": "MacOS system permissions for Automation"
+            },
+            {
+              "url": "https://github.com/anthropics/claude-code/issues/36832",
+              "title": "macOS TCC permission prompt (\"node ..."
+            },
+            {
+              "url": "https://www.macscripter.net/t/automating-button-click-in-macos-file-access-permission-dialog/76710",
+              "title": "Automating Button Click in macOS File Access Permission ..."
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/303883/what-happens-after-you-grant-accessibility-permissions-to-an-app-downloaded-from",
+              "title": "What happens after you grant accessibility permissions to ..."
+            },
+            {
+              "url": "https://hookproductivity.com/help/general/accessibility-permissions/",
+              "title": "Accessibility and Automation Permissions"
+            },
+            {
+              "url": "https://discussions.apple.com/thread/256103597",
+              "title": "Automator workflow asks for Accessibility…"
+            },
+            {
+              "url": "https://www.youtube.com/watch?v=LryZRQZRJM4",
+              "title": "What Are macOS Accessibility Permissions And How To ..."
+            },
+            {
+              "url": "https://help.rescuetime.com/article/59-how-do-i-enable-accessibility-permissions-on-mac-osx",
+              "title": "Granting macOS Permissions for Time Tracking"
+            },
+            {
+              "url": "https://www.reddit.com/r/MacOS/comments/sbb45j/what_does_accessibility_grant_to_mac_app/",
+              "title": "What does Accessibility grant to Mac app? : r/MacOS"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/61847744/can-an-app-in-the-mac-app-store-ever-get-accessibility-permission",
+              "title": "Can an app in the Mac App Store ever get Accessibility ..."
+            },
+            {
+              "url": "https://github.com/actions/runner-images/issues/1567",
+              "title": "Accessibility Permissions for the app deployed in macOS"
+            },
+            {
+              "url": "https://www.macscripter.net/t/close-frontmost-window-of-active-app-then-activate-previous-app/76926",
+              "title": "Close frontmost window of active app, then ..."
+            },
+            {
+              "url": "https://forum.latenightsw.com/t/bringing-music-apps-main-window-to-front/4775",
+              "title": "Bringing Music.app's main window to front - AppleScript"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/56889874/applescript-loop-over-application-windows-bring-each-to-front-trigger-action",
+              "title": "AppleScript: loop over application windows; bring each to ..."
+            },
+            {
+              "url": "https://discussions.apple.com/thread/2207030",
+              "title": "frontmost window, overall"
+            },
+            {
+              "url": "https://talk.automators.fm/t/unminimize-windows-of-the-current-application/12360",
+              "title": "Unminimize windows of the current application - AppleScript"
+            },
+            {
+              "url": "https://forum.keyboardmaestro.com/t/understanding-applescript-ui-scripting-to-click-menus/29039?page=2",
+              "title": "Understanding AppleScript UI-Scripting to Click Menus"
+            },
+            {
+              "url": "https://mikebian.co/applescript-tips-inspecting-objects-modal-dialogs-and-more/",
+              "title": "AppleScript Tips: Inspecting Objects, Modal Dialogs, and More"
+            },
+            {
+              "url": "https://scriptingosx.com/2020/09/avoiding-applescript-security-and-privacy-requests/",
+              "title": "Avoiding AppleScript Security and Privacy Requests"
+            },
+            {
+              "url": "https://gist.github.com/85371b38c692460b46a1",
+              "title": "Applescript to place specific window at full screen when ..."
+            },
+            {
+              "url": "https://learn.jamf.com/r/en-US/technical-articles/Resetting_Transparency_Consent_and_Control_Prompts_on_macOS",
+              "title": "Resetting Transparency Consent and Control Prompts on ..."
+            },
+            {
+              "url": "https://karol-mazurek.medium.com/snake-apple-ix-tcc-ae822e3e2718",
+              "title": "Snake&Apple IX — TCC - Karol Mazurek - Medium"
+            },
+            {
+              "url": "https://www.sentinelone.com/labs/bypassing-macos-tcc-user-privacy-protections-by-accident-and-design/",
+              "title": "Bypassing macOS TCC User Privacy Protections By ..."
+            },
+            {
+              "url": "https://hacktricks.wiki/en/macos-hardening/macos-security-and-privilege-escalation/macos-security-protections/macos-tcc/index.html",
+              "title": "macOS TCC"
+            },
+            {
+              "url": "https://www.reddit.com/r/cybersecurity/comments/1rm4z5a/macos_tcc_permissions_when_trust_persists_after/",
+              "title": "macOS TCC Permissions: When Trust Persists After Approval"
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/486446/how-to-grant-permissions-to-an-application-from-command-line",
+              "title": "How to grant permissions to an application from command ..."
+            },
+            {
+              "url": "https://wts.dev/posts/tcc-who/",
+              "title": "Can You Really Trust That Permission Pop-Up On macOS ..."
+            },
+            {
+              "url": "https://www.hexnode.com/mobile-device-management/help/automate-macos-tcc-pppc-permissions-deployment/",
+              "title": "macOS TCC/PPPC Permissions | Automating Privacy ..."
+            },
+            {
+              "url": "https://support.apple.com/guide/mac-help/allow-apps-to-control-other-apps-on-mac-mchl07817563/mac",
+              "title": "Allow apps to control other apps on Mac - Apple Support"
+            },
+            {
+              "url": "https://support.apple.com/en-gw/guide/mac-help/mchl108e1718/mac",
+              "title": "Allow apps to automate and control other apps - Apple Support (GW)"
+            },
+            {
+              "url": "https://support.apple.com/en-us/102445",
+              "title": "Safely open apps on your Mac - Apple Support"
+            },
+            {
+              "url": "https://support.apple.com/en-tj/guide/mac-help/mh43185/mac",
+              "title": "Allow accessibility apps to access your Mac - Apple Support (TJ)"
+            },
+            {
+              "url": "https://support.apple.com/en-gb/guide/mac-help/mchl211c911f/mac",
+              "title": "Change Privacy & Security settings on Mac - Apple Support"
+            },
+            {
+              "url": "https://support.apple.com/en-gb/guide/mac-help/mh40616/mac",
+              "title": "Open a Mac app from an unknown developer - Apple Support"
+            },
+            {
+              "url": "https://support.apple.com/en-my/guide/mac-help/mh11851/mac",
+              "title": "Allow Apple Remote Desktop to access your Mac"
+            },
+            {
+              "url": "https://support.apple.com/en-hk/guide/mac-help/mchl1ffddf58/mac",
+              "title": "Allow apps to use your Documents folder - Apple Support (HK)"
+            },
+            {
+              "url": "https://support.apple.com/en-mn/guide/mac-help/mchla4f49138/mac",
+              "title": "Control access to your local network on Mac - Apple Support (MN)"
+            },
+            {
+              "url": "https://support.apple.com/en-lk/guide/mac-help/mchlc5fb7f9c/mac",
+              "title": "Control the ability of apps to run software that doesn't meet the ..."
+            },
+            {
+              "url": "https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/AutomatetheUserInterface.html",
+              "title": "Mac Automation Scripting Guide"
+            },
+            {
+              "url": "https://www.macscripter.net/t/sonoma-wont-allow-my-script-to-use-gui-scripting/76591",
+              "title": "Sonoma won't allow my script to use GUI scripting"
+            },
+            {
+              "url": "https://macosxautomation.com/mavericks/guiscripting/index.html",
+              "title": "OS X: GUI Scripting - Accessibility Access Controls"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/54578125/apple-permission-hell-osascript-and-accessibility-assistive-access",
+              "title": "macos - Apple permission hell: osascript and Accessibility ..."
+            },
+            {
+              "url": "https://forum.latenightsw.com/t/get-set-accessibility-permissions/1510",
+              "title": "Get/Set Accessibility Permissions? - AppleScript"
+            },
+            {
+              "url": "https://docs.uipath.com/activities/other/latest/ui-automation/macos-configuration-steps",
+              "title": "Activities - Configuration steps"
+            },
+            {
+              "url": "https://litux.nl/mirror/applescriptdefinitiveguide/applescpttdg2-CHP-24-SECT-2.html",
+              "title": "Section 24.2. Getting Started with Accessibility - Litux"
+            },
+            {
+              "url": "https://forum.popclip.app/t/how-to-make-macos-ask-for-permission-again/1287",
+              "title": "How To: Make macOS ask for permission again"
+            },
+            {
+              "url": "https://news.ycombinator.com/item?id=41186582",
+              "title": "macOS Sequoia adds weekly permission prompt for screen ..."
+            },
+            {
+              "url": "https://stackoverflow.com/questions/79205426/how-can-an-application-check-if-it-has-permission-to-control-another-application",
+              "title": "How can an application check if it has permission to control ..."
+            },
+            {
+              "url": "https://docs.level.io/en/articles/9926339-macos-install",
+              "title": "macOS Install | Level Documentation"
+            },
+            {
+              "url": "https://github.com/tauri-apps/tauri/issues/8041",
+              "title": "[bug] MacOS Universal apps prompt multiple times for ..."
+            },
+            {
+              "url": "https://www.reddit.com/r/editors/comments/1emayun/fyi_macos_sequoia_adds_weekly_permission_prompt/",
+              "title": "FYI: macOS Sequoia adds weekly permission prompt for ..."
+            },
+            {
+              "url": "https://cycling74.com/forums/sendreceive-apple-events-from-external-object",
+              "title": "send/receive apple events from external object - Dev Forum"
+            },
+            {
+              "url": "https://peekaboo.sh/permissions.html",
+              "title": "Permissions & Performance — Peekaboo"
+            },
+            {
+              "url": "https://github.com/steipete/peekaboo/issues/51",
+              "title": "Macos Tahoe permissions issue · Issue #51 · steipete/Peekaboo"
+            },
+            {
+              "url": "https://nick-liu.com/posts/tcc-cdhash-trap/",
+              "title": "TCC pins your Accessibility grant to a cdhash. Every rebuild breaks it. · Nick Liu - Software Engineer"
+            },
+            {
+              "url": "https://mcp.waymark.network/r/22161c49-5482-4ae1-95a5-1af39e7d6d27",
+              "title": "Handle macOS TCC Accessibility permission grants and failures when driving other apps' UI via the AXUIElement API — developer.apple.com: 5 steps + 3 gotchas | Waymark"
+            },
+            {
+              "url": "https://proxymac.com/en/blog/articles/openclaw-macos-tcc-permissions-screen-recording-2026.html",
+              "title": "OpenClaw macOS TCC & Screen Recording on Mac mini (2026) - ProxyMac"
+            },
+            {
+              "url": "https://github.com/steipete/peekaboo/issues/73",
+              "title": "AppleEvents Automation prompt never appears (kTCCServiceAppleEvents denied) · Issue #73 · steipete/Peekaboo"
+            },
+            {
+              "url": "https://github.com/openclaw/Peekaboo/issues/73",
+              "title": "AppleEvents Automation prompt never appears (kTCCServiceAppleEvents denied)"
+            },
+            {
+              "url": "https://cdn.jsdelivr.net/npm/@api-pedia/aura@2026.3.2/docs/platforms/mac/peekaboo.md",
+              "title": null
+            },
+            {
+              "url": "https://cdn.jsdelivr.net/npm/@api-pedia/aura@2026.3.2/docs/platforms/macos.md",
+              "title": null
+            },
+            {
+              "url": "https://github.com/pingdotgg/t3code/issues/728",
+              "title": "apps launched from integrated terminal can't request TCC ..."
+            },
+            {
+              "url": "https://community.folivora.ai/t/shortcut-events-automation-permission/39182",
+              "title": "Shortcut Events Automation Permission?"
+            },
+            {
+              "url": "https://forum.cursor.com/t/repeated-macos-tcc-prompt-allow-cursor-vscode-to-access-xcode-when-using-xcode-tools-mcp/158553",
+              "title": "Repeated macOS TCC prompt \"Allow cursor-vscode to ..."
+            },
+            {
+              "url": "https://wojciechregula.blog/post/macos-red-teaming-bypass-tcc-with-old-apps/",
+              "title": "macOS Red Teaming: Bypass TCC with old apps"
+            },
+            {
+              "url": "https://flaviocopes.com/courses/automate-macos/send-a-small-apple-event/",
+              "title": "Send a small Apple event — Automate macOS Course"
+            },
+            {
+              "url": "https://support.apple.com/en-in/guide/mac-help/mh43185/mac",
+              "title": "Allow accessibility apps to access your Mac"
+            },
+            {
+              "url": "https://discussions.apple.com/thread/255651620",
+              "title": "Why are accessibility settings being ignored"
+            },
+            {
+              "url": "https://www.macscripter.net/t/select-part-of-window-with-ui-scripting/47502",
+              "title": "Select part of window with UI scripting - AppleScript"
+            },
+            {
+              "url": "https://n8henrie.com/2013/03/a-strategy-for-ui-scripting-in-applescript/",
+              "title": "A Strategy for UI Scripting in AppleScript"
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/293087/detect-application-focus-event-using-applescript",
+              "title": "Detect application focus event using applescript"
+            },
+            {
+              "url": "https://www.sudoade.com/gui-scripting-with-applescript/",
+              "title": "GUI Scripting with AppleScript"
+            },
+            {
+              "url": "https://forum.soundflow.org/-355/how-to-set-an-app-frontmost",
+              "title": "How to set an app frontmost?"
+            },
+            {
+              "url": "https://www.macosxautomation.com/applescript/uiscripting/index.html",
+              "title": "AppleScript: Graphic User Interface (GUI) Scripting"
+            },
+            {
+              "url": "https://documentation.mamp.info/en/MAMP-PRO-Mac/FAQ/General/AppleScript-Permissions-on-macOS/",
+              "title": "AppleScript Permissions on macOS"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/51299066/macos-mojave-automator-not-authorized-to-send-apple-events-to-system-events",
+              "title": "macOS Mojave, Automator “Not authorized to send Apple ..."
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/460428/macos-ventura-apps-do-not-ask-for-permissions-after-tccutil-reset",
+              "title": "MacOS Ventura Apps do not ask for permissions after ..."
+            },
+            {
+              "url": "https://www.facebook.com/groups/1577315533418837/posts/1659804838503239/",
+              "title": "How to deal with macOS TCC/permissions popups?"
+            },
+            {
+              "url": "https://www.reddit.com/r/MacOS/comments/1tj4tu4/accessibility_permission_on_macos_isnt_as_scoped/",
+              "title": "accessibility permission on macos isn't as scoped as ..."
+            },
+            {
+              "url": "https://jano.dev/apple/macos/swift/2025/01/08/Accessibility-Permission.html",
+              "title": "Accessibility Permission in macOS | My awesome title"
+            },
+            {
+              "url": "https://docs.set.me/permissions-on-mac/allow-accessibility-permissions-on-mac-instructions-for-expert",
+              "title": "Allow Accessibility permissions on Mac (Instructions for Expert)"
+            },
+            {
+              "url": "https://stackoverflow.com/questions/52214771/accessibility-permissions-for-development-in-macos-and-xcode",
+              "title": "Accessibility Permissions for Development in macOS and ..."
+            },
+            {
+              "url": "https://afine.com/to-allow-or-not-to-get-task-allow-that-is-the-question",
+              "title": "To Allow or Not to get-task-allow: macOS Security Analysis"
+            },
+            {
+              "url": "https://www.macscripter.net/t/apple-event-authorization-dialog-never-shows-up/71663",
+              "title": "Apple Event authorization dialog never shows up"
+            },
+            {
+              "url": "https://community.adobe.com/questions-671/indesign-16-3-2-not-authorised-to-send-apple-events-to-other-apps-869680",
+              "title": "InDesign 16.3.2 not authorised to send Apple events ..."
+            },
+            {
+              "url": "https://www.felix-schwarz.org/blog/2018/06/apple-event-sandboxing-in-macos-mojave",
+              "title": "Apple Event sandboxing in macOS Mojave lacks essential APIs"
+            },
+            {
+              "url": "https://forum.xojo.com/t/cant-get-app-added-to-privacy-automation/68914",
+              "title": "Can't get app added to Privacy/Automation - macOS"
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/468354/macos-ventura-cannot-reset-automation-preferences-for-a-single-app",
+              "title": "MacOS Ventura cannot reset Automation preferences for a ..."
+            },
+            {
+              "url": "https://developer.apple.com/forums/thread/766270",
+              "title": "How to reset (remove) apps from \"Local Network\" privacy ..."
+            },
+            {
+              "url": "https://bitsplitting.org/2018/07/11/reauthorizing-automation-in-mojave/",
+              "title": "Reauthorizing Automation in Mojave - Bitsplitting.org"
+            },
+            {
+              "url": "https://github.com/5T33Z0/OC-Little-Translated/blob/main/Content/13_Peripherals/Reset_App_Permissions.md",
+              "title": "How to Reset App Permissions on macOS"
+            },
+            {
+              "url": "https://community.folivora.ai/t/experince-with-tccutil-reset-accessibility/33895",
+              "title": "Experince with \"tccutil reset Accessibility\"?"
+            },
+            {
+              "url": "https://forums.macrumors.com/threads/how-to-grant-automation-access-in-bigsur.2395271/",
+              "title": "How to Grant Automation Access in bigsur"
+            },
+            {
+              "url": "https://www.macscripter.net/t/activate-the-frontmost-window-in-the-previous-app/64382/16",
+              "title": "Activate the frontmost window in the previous app."
+            },
+            {
+              "url": "https://stackoverflow.com/questions/79046284/how-to-get-frontmost-application-without-needing-accessibility-permissions",
+              "title": "How to get frontmost application without needing ..."
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/450359/how-to-toggle-accessibility-features-with-applescript-in-ventura",
+              "title": "How to toggle Accessibility features with AppleScript in ..."
+            },
+            {
+              "url": "https://forum.keyboardmaestro.com/t/can-i-use-applescript-accessibility-to-determine-if-the-menu-bar-is-visible/50639?page=2",
+              "title": "Can I use Applescript+Accessibility to determine if the ..."
+            },
+            {
+              "url": "https://www.reddit.com/r/macsysadmin/comments/17egi4v/turn_on_mac_screen_recording_and_accessibility/",
+              "title": "Turn on Mac screen recording and accessibility ..."
+            },
+            {
+              "url": "https://www.reddit.com/r/BlackboxAI_/comments/1ruz011/openclaw_macos_permissions_vs_commercial_cli_tools/",
+              "title": "OpenClaw macOS permissions vs commercial CLI tools"
+            },
+            {
+              "url": "https://apple.stackexchange.com/questions/472592/grant-permissions-from-the-command-line",
+              "title": "Grant permissions from the command line - Ask Different"
+            },
+            {
+              "url": "https://github.com/openclaw/openclaw/issues/30949",
+              "title": "prompts show 'node' even when OpenClaw.app is installed ..."
+            },
+            {
+              "url": "https://medium.com/macoclock/5-the-mac-automation-layer-apple-buried-and-the-four-way-bridge-that-connects-all-of-it-52c1222bf3c5",
+              "title": "#5 The Mac Automation Layer Apple Buried and the Four ..."
+            },
+            {
+              "url": "https://steipete.me/posts/2025/applescript-cli-macos-complete-guide",
+              "title": "Making AppleScript Work in macOS CLI Tools"
+            },
+            {
+              "url": "https://developer.apple.com/forums/thread/836770",
+              "title": "Supported mechanism to provision A…"
+            }
+          ],
+          "generatedAt": "2026-09-11T19:34:18.070Z",
+          "completeness": "complete"
+        },
+        "next": null,
+        "error": null,
+        "skillVersion": "8d3db9c52227"
+      },
+      "runnerError": null,
+      "dependsOn": [],
+      "phase": 0,
+      "role": "macOS privacy and UI-scripting scout"
+    }
+  }
+}
