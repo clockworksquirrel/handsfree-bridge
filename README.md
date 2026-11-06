@@ -74,7 +74,7 @@ The repository has not been certified for every assistive technology, operating 
 
 Useful improvements include fewer required interactions, clearer errors, reliable voice/text approval delivery, supported harness adapters, platform tests, and documentation that people can follow without a mouse. Reports describing the interaction that failed are welcome; private medical information is not needed.
 
-Please use issues for reproducible bugs and focused proposals. Do not post credentials, private commands, personal paths, or unredacted logs.
+Please use issues for reproducible bugs and focused proposals. Report bugs on the [GitHub issues page](https://github.com/clockworksquirrel/handsfree-bridge/issues). Do not post credentials, private commands, personal paths, or unredacted logs.
 
 ## License
 
