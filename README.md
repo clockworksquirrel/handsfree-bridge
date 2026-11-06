@@ -6,6 +6,12 @@ Repeated confirmation dialogs can be a real accessibility barrier. This project 
 
 It works alongside an AI harness and its computer-use tools. The reference implementation is macOS/Unix-oriented, with a Codex-style hook adapter and an AppleScript MCP gateway. Other integrations need verification or an adapter.
 
+## Requirements
+
+- Python 3.11 or newer.
+- macOS or another Unix-like system. Windows is not supported yet.
+- Optional: the MCP SDK and Pydantic, only needed for the AppleScript gateway import test (see [Verification](#verification)).
+
 ## Start with the prompt
 
 Open **[prompt.md](prompt.md)** and give it to an AI coding agent you trust on a computer you own or are authorized to administer. Fill in the bracketed fields you know. The prompt tells the agent to discover the rest, inspect the actual harness, make backups, implement the supported integration, and verify it.
